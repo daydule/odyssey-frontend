@@ -1,0 +1,11 @@
+version: '3'
+services:
+  nextjs:
+    build: ./
+    tty: true
+    environment:
+      - WATCHPACK_POLLING=true
+    volumes:
+      - ./:/odyssey:cached
+    ports:
+      - '4000:4000'
