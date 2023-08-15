@@ -6,14 +6,15 @@
     "customizations": {
       "vscode": {
         "extensions": [
-          "dbaeumer.vscode-eslint",
-          "esbenp.prettier-vscode",
-          "streetsidesoftware.code-spell-checker",
-          "oderwat.indent-rainbow",
-          "formulahendry.auto-rename-tag",
-          "natqe.reload",
-          "csstools.postcss"
-        ]
+			"dbaeumer.vscode-eslint",
+			"esbenp.prettier-vscode",
+			"streetsidesoftware.code-spell-checker",
+			"oderwat.indent-rainbow",
+			"formulahendry.auto-rename-tag",
+			"natqe.reload",
+			"csstools.postcss",
+			"eamodio.gitlens"
+		]
       }
     },
     "shutdownAction": "stopCompose"
