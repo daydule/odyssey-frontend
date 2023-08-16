@@ -1,7 +1,7 @@
 FROM node:18.17-bullseye
 WORKDIR /odyssey/
 COPY ./package*.json ./
-RUN npm ci && mv ./node_modules /
+RUN npm ci
 # Japanese
 RUN apt-get update \
     && apt-get install -y locales \
