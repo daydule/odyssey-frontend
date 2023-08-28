@@ -6,6 +6,6 @@ services:
     environment:
       - WATCHPACK_POLLING=true
     volumes:
-      - ./:/odyssey:cached
+      - ./:/odyssey:consistent
     ports:
       - '4000:4000'
