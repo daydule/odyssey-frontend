@@ -1,23 +1,25 @@
 {
-    "name": "odyssey",
-    "dockerComposeFile": "../docker-compose.yaml",
-    "service": "nextjs",
-    "workspaceFolder": "/odyssey",
-    "customizations": {
-      "vscode": {
-        "extensions": [
-          "dbaeumer.vscode-eslint",
-          "esbenp.prettier-vscode",
-          "streetsidesoftware.code-spell-checker",
-          "oderwat.indent-rainbow",
-          "formulahendry.auto-rename-tag",
-          "natqe.reload",
-          "csstools.postcss",
-          "eamodio.gitlens",
-          "bradlc.vscode-tailwindcss"
-        ]
-      }
-    },
-    "mounts": ["source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"],
-    "shutdownAction": "stopCompose"
-  }
+  "name": "odyssey",
+  "dockerComposeFile": "../docker-compose.yaml",
+  "service": "nextjs",
+  "workspaceFolder": "/odyssey",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "streetsidesoftware.code-spell-checker",
+        "oderwat.indent-rainbow",
+        "formulahendry.auto-rename-tag",
+        "natqe.reload",
+        "csstools.postcss",
+        "eamodio.gitlens",
+        "bradlc.vscode-tailwindcss"
+      ]
+    }
+  },
+  "mounts": [
+    "source=${localWorkspaceFolderBasename}-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+  ],
+  "shutdownAction": "stopCompose"
+}
