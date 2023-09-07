@@ -27,7 +27,7 @@ const AmountDisplay = ({ variant, amount }: AmountDisplayProps) => {
   }
   return (
     <div className={`${bgColor} rounded p-4 shadow-md`}>
-      <span className='text-2xl font-semibold'>${amount.toFixed(2)}</span>
+      <span className='text-2xl font-semibold'>￥{amount.toFixed(0)}</span>
     </div>
   );
 };
