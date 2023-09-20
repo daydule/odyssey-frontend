@@ -1,0 +1,39 @@
+# ワークフローの名前を設定
+name: Node.js CI
+# このワークフローがトリガーされるイベントを定義
+on:
+  # リポジトリに変更がプッシュされたときにトリガー
+  push:
+    # developブランチに変更がプッシュされた場合のみトリガー
+    branches: [develop]
+  # プルリクエストが作成されたときにトリガー
+  pull_request:
+    # developブランチに対するプルリクエストの場合のみトリガー
+    branches: [develop]
+# 実行するジョブを定義
+jobs:
+  # buildという名前のジョブを定義
+  build:
+    # ジョブを実行する環境を指定 (ここでは最新のUbuntu)
+    runs-on: ubuntu-latest
+    # ジョブの実行戦略を定義
+    strategy:
+      # 複数の環境でジョブを実行するためのマトリックスを定義
+      matrix:
+        # Node.jsのバージョン18.xでジョブを実行
+        node-version: [18.x]
+    # ジョブ内で実行するステップを定義
+    steps:
+      # リポジトリのコードをチェックアウト
+      - uses: actions/checkout@v3
+      # 指定されたバージョンのNode.jsをセットアップ
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      # プロジェクトの依存関係をインストール
+      - run: npm ci
+      # プロジェクトをビルド
+      - run: npm run build
+      # コードのリントチェックを実行
+      - run: npm run lint

@@ -5,6 +5,7 @@
     "plugin:import/warnings",
     "plugin:tailwindcss/recommended",
     "plugin:react/recommended",
+    "plugin:storybook/recommended",
     "prettier"
   ],
   "rules": {
