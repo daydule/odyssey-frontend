@@ -36,7 +36,7 @@ export const RightImage: Story = {
 };
 
 /**
- * 画像(右側)ありの説明カード
+ * 画像なしの説明カード
  */
 export const NoImage: Story = {
   args: {
