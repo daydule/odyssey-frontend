@@ -36,6 +36,11 @@ export const AboutCardWithImage = (props: Props) => {
   };
 
   return (
-    <div className='flex h-[384px] w-full rounded-[50px] border shadow-lg lg:w-[1024px]'>{getRenderComponent()}</div>
+    <div
+      className='flex h-[384px] w-full rounded-[50px] border shadow-lg lg:w-[1024px]'
+      data-testid='AboutCardWithImage'
+    >
+      {getRenderComponent()}
+    </div>
   );
 };
