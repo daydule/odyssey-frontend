@@ -3,7 +3,7 @@ import MainCard from './MainCard';
 
 const meta: Meta<typeof MainCard> = {
   component: MainCard,
-  title: 'Reaf/MainCard',
+  title: 'Tree/MainCard',
   tags: ['autodocs'],
 };
 
@@ -18,6 +18,6 @@ export const Default: Story = {
   args: {
     title: 'Time is Money',
     children: <>Hello</>,
-    color: 'bg-cardHeaderBlue',
+    headerBgColor: 'bg-cyan-400',
   },
 };
