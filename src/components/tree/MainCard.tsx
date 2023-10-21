@@ -24,10 +24,7 @@ const MainCard = ({ children, title, headerBgColor }: Props) => {
           <circle cx='6' cy='6.29102' r='6' fill='white' />
         </svg>
       </section>
-      <section
-        className='flex h-[535px] w-full items-center justify-center px-[30px] py-[50px]'
-        data-testid='MainCard_Children'
-      >
+      <section className='flex h-[535px] w-full items-center justify-center p-[30px]' data-testid='MainCard_Children'>
         {children}
       </section>
     </article>
