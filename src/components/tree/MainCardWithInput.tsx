@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
-import { SetMainPriceContext } from '@/components/forest/Main';
-import Button from '@/components/leaf/Button';
-import Input from '@/components/leaf/Input';
-import MainCard from '@/components/tree/MainCard';
-import { useNotInitializingEffect } from '@/hooks/useNotInitializingEffect';
+import { SetMainPriceContext } from '../../components/forest/Main';
+import Button from '../../components/leaf/Button';
+import Input from '../../components/leaf/Input';
+import MainCard from '../../components/tree/MainCard';
+import { useNotInitializingEffect } from '../../hooks/useNotInitializingEffect';
 
 const MainCardWithMoneyResult = () => {
   // 入力フォームのアクティブ管理

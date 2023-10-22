@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, createContext } from 'react';
-import MainCardWithInput from '@/components/tree/MainCardWithInput';
-import MainCardWithMoneyResult from '@/components/tree/MainCardWithMoneyResult';
+import MainCardWithInput from '../../components/tree/MainCardWithInput';
+import MainCardWithMoneyResult from '../../components/tree/MainCardWithMoneyResult';
 
 type MainPriceContext = {
   mainPrice: number;

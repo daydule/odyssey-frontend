@@ -1,0 +1,48 @@
+import { Meta, StoryObj } from '@storybook/react';
+import { useState } from 'react';
+import Input from './Input';
+
+const meta: Meta<typeof Input> = {
+  component: Input,
+  title: 'Leaf/Input',
+  tags: ['autodocs'],
+};
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+/**
+ * 入力欄（入力可）
+ */
+export const CanInput: Story = {
+  args: {
+    label: '年収',
+    handleChange: undefined,
+    value: 0,
+    handleActive: undefined,
+  },
+  render: function Button({ ...args }) {
+    const [value, setValue] = useState<number>(0);
+
+    return <Input {...args} value={value} handleActive={''} handleChange={setValue} />;
+  },
+};
+
+/**
+ * 入力欄（入力不可）
+ */
+export const CanNotInput: Story = {
+  args: {
+    label: '年収',
+    handleChange: undefined,
+    value: 0,
+    handleActive: undefined,
+  },
+  render: function Button({ ...args }) {
+    const [value, setValue] = useState<number>(0);
+    const [_, setActive] = useState<string>('年収');
+
+    return <Input {...args} value={value} handleActive={setActive} handleChange={setValue} />;
+  },
+};
