@@ -1,4 +1,4 @@
-FROM node:18.17-bullseye
+FROM node:18.18.2-bullseye
 WORKDIR /odyssey/
 COPY ./package*.json ./
 RUN npm ci
