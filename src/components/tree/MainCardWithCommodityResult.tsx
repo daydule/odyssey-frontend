@@ -13,12 +13,7 @@ const MainCardWithCommodityResult = ({ commodities }: Props) => {
         {commodities.map((commodity, index) => {
           return (
             <li className='[&:not(:first-child)]:mt-4' key={`commodity_${index}`}>
-              <CommodityCard
-                imagePath={commodity.imagePath}
-                altText={commodity.altText}
-                title={commodity.title}
-                price={commodity.price}
-              ></CommodityCard>
+              <CommodityCard commodity={commodity}></CommodityCard>
             </li>
           );
         })}

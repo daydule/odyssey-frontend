@@ -42,7 +42,7 @@ export const Default: Story = {
 /**
  * 商品が多い場合
  */
-export const ManyCommodity: Story = {
+export const ManyCommodities: Story = {
   args: {
     commodities: [
       {

@@ -28,7 +28,7 @@ describe('商品一覧表示カードコンポーネントのテスト', () => {
 
     const listItem = screen.getAllByRole('listitem');
 
-    expect(listItem.length).toBe(3);
+    expect(listItem.length).toBe(commodities.length);
     expect(listItem[0].innerHTML).toMatch(/air pods2/);
     expect(listItem[0].innerHTML).toMatch(/¥30,000/);
   });
