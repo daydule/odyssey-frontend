@@ -1,16 +1,17 @@
 type Props = {
   label: string;
-  handleChange: React.Dispatch<React.SetStateAction<number>>;
+  handleChange: React.Dispatch<React.SetStateAction<number>>; // フォームに入力した値を他のフォームに連携するためのSet関数が入る
   value: number;
-  handleActive: React.Dispatch<React.SetStateAction<string>> | '';
+  placeholder: string;
+  handleActive: React.Dispatch<React.SetStateAction<string>> | ''; // ユーザーが現在アクティブ状態にしているフォームを特定するためのSet関数が入る
 };
 
-const Input = ({ label, handleChange, value, handleActive }: Props) => {
+const MainCardInput = ({ label, handleChange, value, placeholder, handleActive }: Props) => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const result = parseInt(e.target.value, 10) || 0;
     handleChange(result);
   };
-  const inputType = (handleActive: React.Dispatch<React.SetStateAction<string>> | '') => {
+  const inputType = (handleActive: Props['handleActive']) => {
     if (handleActive !== '') {
       return (
         <div className='flex'>
@@ -40,7 +41,7 @@ const Input = ({ label, handleChange, value, handleActive }: Props) => {
         <input
           className='text-right outline-none'
           onChange={onChange}
-          placeholder='入力してください'
+          placeholder={placeholder}
           value={value || 0}
           id={label}
           type='tel'
@@ -57,4 +58,4 @@ const Input = ({ label, handleChange, value, handleActive }: Props) => {
   );
 };
 
-export default Input;
+export default MainCardInput;

@@ -20,6 +20,7 @@ export const CanInput: Story = {
     label: '年収',
     handleChange: undefined,
     value: 0,
+    placeholder: '入力してください',
     handleActive: undefined,
   },
   render: function Button({ ...args }) {

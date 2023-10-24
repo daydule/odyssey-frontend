@@ -32,5 +32,3 @@ const Main = () => {
 };
 
 export default Main;
-
-// <Circle variant="orange"></Circle>
