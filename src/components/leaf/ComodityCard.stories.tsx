@@ -16,9 +16,11 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
   args: {
-    imagePath: '/images/icon_negate.jpeg',
-    altText: 'altText',
-    title: 'air pods2',
-    price: 30000,
+    commodity: {
+      imagePath: '/images/icon_negate.jpeg',
+      altText: 'altText',
+      title: 'air pods2',
+      price: 30000,
+    },
   },
 };
