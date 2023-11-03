@@ -15,7 +15,7 @@ const AppInstallButton = ({ platform }: Props) => {
           <img
             src='https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-jp?size=250x83&releaseDate=1464739200&h=b488c8877a1de0c0ee752e2cea473eec'
             alt='Download on the App Store'
-            className='mx-[-20px] h-20 w-64 rounded-lg'
+            className='h-20 w-64 rounded-lg'
           />
         </a>
       );
@@ -23,7 +23,7 @@ const AppInstallButton = ({ platform }: Props) => {
       return (
         <a
           href='https://play.google.com/store/#?pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'
-          className='inline-block'
+          className='inline-block h-24 w-56'
         >
           <img
             src='https://play.google.com/intl/en_us/badges/images/generic/ja_badge_web_generic.png'
