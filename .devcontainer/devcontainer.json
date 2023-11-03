@@ -14,7 +14,8 @@
         "natqe.reload",
         "csstools.postcss",
         "eamodio.gitlens",
-        "bradlc.vscode-tailwindcss"
+        "bradlc.vscode-tailwindcss",
+        "george-alisson.html-preview-vscode"
       ]
     }
   },
