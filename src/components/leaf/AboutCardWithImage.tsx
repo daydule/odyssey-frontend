@@ -1,11 +1,14 @@
-type Props = {
+export type AboutCardWithImageProps = {
   imagePath: string;
   title: string;
   text: string;
-  isImageLeft: boolean;
+  isImageLeft?: boolean;
 };
 
-export const AboutCardWithImage = (props: Props) => {
+export const AboutCardWithImage = (props: AboutCardWithImageProps) => {
+  // TODO: スマホ表示の時に画像が上に表示されるようにする
+  // TODO: テキストが長すぎる時に枠を大きくする（画像の表示も変にならないようにする）
+
   const getImageArea = () => {
     return (
       <div className='w-1/2 text-center' data-testid='AboutCardWithImage_ImageArea'>
