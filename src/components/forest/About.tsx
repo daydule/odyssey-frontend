@@ -5,24 +5,11 @@ import { AboutCardWitTextProps, AboutCardWithText } from '../leaf/AboutCardWithT
 import AppInstallButton from '../leaf/AppInstallButton';
 
 export const About = () => {
-  const aboutCardsWithText = useMemo(() => {
-    const aboutCardWithTextInfo: AboutCardWitTextProps[] = [
-      {
-        text: 'テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト',
-      },
-    ];
+  const titleStyle = 'text-center text-3xl font-medium';
+  const mainText =
+    'テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト';
 
-    const baseStyle = 'flex justify-center';
-    return aboutCardWithTextInfo.map((info, index) => {
-      return (
-        <div key={'aboutCartsWithText_' + index} className={twMerge(baseStyle, index !== 0 ? 'mt-20' : 'mt-10')}>
-          <AboutCardWithText text={info.text} />
-        </div>
-      );
-    });
-  }, []);
-
-  const aboutCardsWithImage = useMemo(() => {
+  const aboutCardsWithImage = () => {
     const aboutCardWithTextInfo: AboutCardWithImageProps[] = [
       {
         imagePath: '/images/icon_negate.jpeg',
@@ -54,19 +41,19 @@ export const About = () => {
         </div>
       );
     });
-  }, []);
-
-  const titleStyle = 'text-center text-3xl font-medium';
+  };
 
   return (
     <div className='w-full'>
       <section>
         <p className={titleStyle}>Time is Moneyとは</p>
-        {aboutCardsWithText}
+        <div className='mt-10 flex justify-center'>
+          <AboutCardWithText text={mainText} />
+        </div>
       </section>
       <section className='mt-24'>
         <p className={titleStyle}>機能紹介</p>
-        {aboutCardsWithImage}
+        {aboutCardsWithImage()}
       </section>
       <section className='mt-24'>
         <p className={titleStyle}>アプリインストール</p>

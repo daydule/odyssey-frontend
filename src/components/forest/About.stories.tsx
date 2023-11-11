@@ -17,7 +17,7 @@ export const Default: Story = {
 
 Default.decorators = [
   (Story) => (
-    <div className='w-full  bg-about-page-image bg-cover bg-no-repeat py-10'>
+    <div className='w-full bg-about-page-image bg-cover bg-no-repeat py-10'>
       <Story />
     </div>
   ),
