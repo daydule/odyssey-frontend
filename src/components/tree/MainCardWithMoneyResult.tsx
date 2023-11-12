@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { MainPriceContext } from '../../components/forest/Main';
 import MainCard from '../../components/tree/MainCard';
 import { useNotInitializingEffect } from '../../hooks/useNotInitializingEffect';
+import { MainPriceContext } from '../forest/PriceContext';
 
 const MainCardWithMoneyResult = () => {
   const { mainPrice } = useContext(MainPriceContext);

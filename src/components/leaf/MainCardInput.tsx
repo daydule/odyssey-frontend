@@ -3,7 +3,7 @@ type Props = {
   handleChange: React.Dispatch<React.SetStateAction<number>>; // フォームに入力した値を他のフォームに連携するためのSet関数が入る
   value: number;
   placeholder: string;
-  handleActive: React.Dispatch<React.SetStateAction<string>> | ''; // ユーザーが現在アクティブ状態にしているフォームを特定するためのSet関数が入る
+  handleActive?: React.Dispatch<React.SetStateAction<string>>; // ユーザーが現在アクティブ状態にしているフォームを特定するためのSet関数が入る
 };
 
 const MainCardInput = ({ label, handleChange, value, placeholder, handleActive }: Props) => {
@@ -12,7 +12,7 @@ const MainCardInput = ({ label, handleChange, value, placeholder, handleActive }
     handleChange(result);
   };
   const inputType = (handleActive: Props['handleActive']) => {
-    if (handleActive !== '') {
+    if (handleActive) {
       return (
         <div className='flex'>
           <input

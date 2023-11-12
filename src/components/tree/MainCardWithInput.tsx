@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { SetMainPriceContext } from '../../components/forest/Main';
+import { SetMainPriceContext } from '../../components/forest/PriceContext';
 import Button from '../../components/leaf/Button';
 import MainCard from '../../components/tree/MainCard';
 import { CONSTANT } from '../../constant/default';
@@ -8,7 +8,7 @@ import MainCardInput from '../leaf/MainCardInput';
 
 const MainCardWithMoneyResult = () => {
   // 入力フォームのアクティブ管理
-  const [active, setActive] = useState<string>(CONSTANT.LABEL.ANNUAL_INCOME);
+  const [activeInput, setActiveInput] = useState<string>(CONSTANT.LABEL.ANNUAL_INCOME);
 
   // 収入（年収・月給・時給）入力値
   const [currentInput, setCurrentInput] = useState<number>(0);
@@ -35,7 +35,7 @@ const MainCardWithMoneyResult = () => {
       let annualIncomeData = 0;
       let hourlyWage = 0;
 
-      switch (active) {
+      switch (activeInput) {
         case CONSTANT.LABEL.ANNUAL_INCOME:
           monthlyIncomeData = currentInput / CONSTANT.CALC.MONTH_OF_THE_YEAR;
           hourlyWage = monthlyIncomeData / CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
@@ -87,29 +87,23 @@ const MainCardWithMoneyResult = () => {
           handleChange={setCurrentInput}
           value={annualIncome}
           placeholder='入力してください'
-          handleActive={active === CONSTANT.LABEL.ANNUAL_INCOME ? '' : setActive}
+          handleActive={activeInput === CONSTANT.LABEL.ANNUAL_INCOME ? undefined : setActiveInput}
         />
         <MainCardInput
           label={CONSTANT.LABEL.MONTHLY_INCOME}
           handleChange={setCurrentInput}
           value={monthlyIncome}
           placeholder='入力してください'
-          handleActive={active === CONSTANT.LABEL.MONTHLY_INCOME ? '' : setActive}
+          handleActive={activeInput === CONSTANT.LABEL.MONTHLY_INCOME ? undefined : setActiveInput}
         />
         <MainCardInput
           label={CONSTANT.LABEL.HOURLY_WAGE}
           handleChange={setCurrentInput}
           value={hourlyWage}
           placeholder='入力してください'
-          handleActive={active === CONSTANT.LABEL.HOURLY_WAGE ? '' : setActive}
+          handleActive={activeInput === CONSTANT.LABEL.HOURLY_WAGE ? undefined : setActiveInput}
         />
-        <MainCardInput
-          label={CONSTANT.LABEL.HOUR}
-          handleChange={setHour}
-          value={hour}
-          placeholder='入力してください'
-          handleActive={''}
-        />
+        <MainCardInput label={CONSTANT.LABEL.HOUR} handleChange={setHour} value={hour} placeholder='入力してください' />
         <Button buttonColor='bg-cyan-400' buttonText='計算' handleClick={calcMainPrice} />
       </div>
     </MainCard>

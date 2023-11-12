@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import Input from './Input';
+import MainCardInput from './MainCardInput';
 
-const meta: Meta<typeof Input> = {
-  component: Input,
+const meta: Meta<typeof MainCardInput> = {
+  component: MainCardInput,
   title: 'Leaf/Input',
   tags: ['autodocs'],
 };
@@ -26,7 +26,7 @@ export const CanInput: Story = {
   render: function Button({ ...args }) {
     const [value, setValue] = useState<number>(0);
 
-    return <Input {...args} value={value} handleActive={''} handleChange={setValue} />;
+    return <MainCardInput {...args} value={value} handleActive={''} handleChange={setValue} />;
   },
 };
 
@@ -44,6 +44,6 @@ export const CanNotInput: Story = {
     const [value, setValue] = useState<number>(0);
     const [_, setActive] = useState<string>('年収');
 
-    return <Input {...args} value={value} handleActive={setActive} handleChange={setValue} />;
+    return <MainCardInput {...args} value={value} handleActive={setActive} handleChange={setValue} />;
   },
 };
