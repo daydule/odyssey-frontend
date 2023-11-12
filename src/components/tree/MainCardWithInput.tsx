@@ -11,7 +11,7 @@ const MainCardWithMoneyResult = () => {
   const [active, setActive] = useState<string>(CONSTANT.LABEL.ANNUAL_INCOME);
 
   // 収入（年収・月給・時給）入力値
-  const [changeState, setChangeState] = useState<number>(0);
+  const [currentInput, setCurrentInput] = useState<number>(0);
   const [annualIncome, setAnnualIncome] = useState<number>(0);
   const [monthlyIncome, setMonthlyIncome] = useState<number>(0);
   const [hourlyWage, setHourlyWage] = useState<number>(0);
@@ -37,10 +37,10 @@ const MainCardWithMoneyResult = () => {
 
       switch (active) {
         case CONSTANT.LABEL.ANNUAL_INCOME:
-          monthlyIncomeData = changeState / CONSTANT.CALC.MONTH_OF_THE_YEAR;
+          monthlyIncomeData = currentInput / CONSTANT.CALC.MONTH_OF_THE_YEAR;
           hourlyWage = monthlyIncomeData / CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
 
-          setAnnualIncome(changeState);
+          setAnnualIncome(currentInput);
 
           if (monthlyIncomeData > 1) {
             setMonthlyIncome(Math.round(monthlyIncomeData));
@@ -55,10 +55,10 @@ const MainCardWithMoneyResult = () => {
           }
           break;
         case CONSTANT.LABEL.MONTHLY_INCOME:
-          annualIncomeData = changeState * CONSTANT.CALC.MONTH_OF_THE_YEAR;
-          hourlyWage = changeState / CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
+          annualIncomeData = currentInput * CONSTANT.CALC.MONTH_OF_THE_YEAR;
+          hourlyWage = currentInput / CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
 
-          setMonthlyIncome(changeState);
+          setMonthlyIncome(currentInput);
           setAnnualIncome(annualIncomeData);
 
           if (hourlyWage > 1) {
@@ -68,37 +68,37 @@ const MainCardWithMoneyResult = () => {
           }
           break;
         case CONSTANT.LABEL.HOURLY_WAGE:
-          monthlyIncomeData = changeState * CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
+          monthlyIncomeData = currentInput * CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
           annualIncomeData = monthlyIncomeData * CONSTANT.CALC.MONTH_OF_THE_YEAR;
 
-          setHourlyWage(changeState);
+          setHourlyWage(currentInput);
           setMonthlyIncome(monthlyIncomeData);
           setAnnualIncome(annualIncomeData);
           break;
       }
     }
-  }, [changeState]);
+  }, [currentInput]);
 
   return (
     <MainCard title='Time is Money' headerBgColor='bg-cyan-400'>
       <div className='flex h-full w-full flex-col justify-between'>
         <MainCardInput
           label={CONSTANT.LABEL.ANNUAL_INCOME}
-          handleChange={setChangeState}
+          handleChange={setCurrentInput}
           value={annualIncome}
           placeholder='入力してください'
           handleActive={active === CONSTANT.LABEL.ANNUAL_INCOME ? '' : setActive}
         />
         <MainCardInput
           label={CONSTANT.LABEL.MONTHLY_INCOME}
-          handleChange={setChangeState}
+          handleChange={setCurrentInput}
           value={monthlyIncome}
           placeholder='入力してください'
           handleActive={active === CONSTANT.LABEL.MONTHLY_INCOME ? '' : setActive}
         />
         <MainCardInput
           label={CONSTANT.LABEL.HOURLY_WAGE}
-          handleChange={setChangeState}
+          handleChange={setCurrentInput}
           value={hourlyWage}
           placeholder='入力してください'
           handleActive={active === CONSTANT.LABEL.HOURLY_WAGE ? '' : setActive}
