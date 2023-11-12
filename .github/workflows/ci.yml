@@ -8,8 +8,8 @@ on:
     branches: [develop]
   # プルリクエストが作成されたときにトリガー
   pull_request:
-    # developブランチに対するプルリクエストの場合のみトリガー
-    branches: [develop]
+    #
+    types: [opened, synchronize, reopened, ready_for_review]
 # 実行するジョブを定義
 jobs:
   # buildという名前のジョブを定義
