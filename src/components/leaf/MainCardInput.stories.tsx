@@ -26,7 +26,7 @@ export const CanInput: Story = {
   render: function Button({ ...args }) {
     const [value, setValue] = useState<number>(0);
 
-    return <MainCardInput {...args} value={value} handleActive={''} handleChange={setValue} />;
+    return <MainCardInput {...args} value={value} handleChange={setValue} />;
   },
 };
 

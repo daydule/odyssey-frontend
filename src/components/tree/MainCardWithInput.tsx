@@ -8,7 +8,7 @@ import MainCardInput from '../leaf/MainCardInput';
 
 const MainCardWithMoneyResult = () => {
   // 入力フォームのアクティブ管理
-  const [activeInput, setActiveInput] = useState<string>(CONSTANT.LABEL.ANNUAL_INCOME);
+  const [activeInput, setActiveInput] = useState<string>('');
 
   // 収入（年収・月給・時給）入力値
   const [currentInput, setCurrentInput] = useState<number>(0);
