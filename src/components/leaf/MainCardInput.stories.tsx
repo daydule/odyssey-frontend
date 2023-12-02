@@ -21,7 +21,7 @@ export const CanInput: Story = {
     handleChange: undefined,
     value: 0,
     placeholder: '入力してください',
-    handleActive: undefined,
+    handleClick: undefined,
   },
   render: function Button({ ...args }) {
     const [value, setValue] = useState<number>(0);
@@ -38,12 +38,12 @@ export const CanNotInput: Story = {
     label: '年収',
     handleChange: undefined,
     value: 0,
-    handleActive: undefined,
+    handleClick: undefined,
   },
   render: function Button({ ...args }) {
     const [value, setValue] = useState<number>(0);
     const [_, setActive] = useState<string>('年収');
 
-    return <MainCardInput {...args} value={value} handleActive={setActive} handleChange={setValue} />;
+    return <MainCardInput {...args} value={value} handleClick={setActive} handleChange={setValue} />;
   },
 };
