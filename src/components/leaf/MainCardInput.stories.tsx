@@ -4,7 +4,7 @@ import MainCardInput from './MainCardInput';
 
 const meta: Meta<typeof MainCardInput> = {
   component: MainCardInput,
-  title: 'Leaf/Input',
+  title: 'Leaf/MainCardInput',
   tags: ['autodocs'],
 };
 
