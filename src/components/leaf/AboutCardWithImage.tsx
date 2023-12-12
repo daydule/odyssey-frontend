@@ -11,16 +11,20 @@ export const AboutCardWithImage = (props: AboutCardWithImageProps) => {
 
   const getImageArea = () => {
     return (
-      <div className='w-1/2 text-center' data-testid='AboutCardWithImage_ImageArea'>
-        <img className='h-full w-full rounded-[50px] bg-gray-300 object-cover' src={props.imagePath} alt='説明画像' />
+      <div className='w-full text-center md:w-1/2' data-testid='AboutCardWithImage_ImageArea'>
+        <img
+          className='h-full w-full rounded-t-3xl bg-gray-300 object-cover md:rounded-[50px]'
+          src={props.imagePath}
+          alt='説明画像'
+        />
       </div>
     );
   };
   const getTextArea = () => {
     return (
-      <div className='w-1/2 p-12 text-center' data-testid='AboutCardWithImage_TextArea'>
+      <div className='p-4 text-center md:w-1/2 md:p-12' data-testid='AboutCardWithImage_TextArea'>
         <p className='text-xl'>{props.title}</p>
-        <p className='mt-12 text-lg'>{props.text}</p>
+        <p className='mt-4 text-lg md:mt-12'>{props.text}</p>
       </div>
     );
   };
@@ -40,7 +44,7 @@ export const AboutCardWithImage = (props: AboutCardWithImageProps) => {
 
   return (
     <div
-      className='flex h-[384px] w-full rounded-[50px] border shadow-lg lg:w-[1024px]'
+      className='rounded-b-3xl border shadow-lg md:flex md:h-[384px] md:rounded-[50px] lg:w-[1024px]'
       data-testid='AboutCardWithImage'
     >
       {getRenderComponent()}
