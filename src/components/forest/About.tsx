@@ -1,10 +1,25 @@
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { AboutCardWithImage, AboutCardWithImageProps } from '../leaf/AboutCardWithImage';
 import { AboutCardWitTextProps, AboutCardWithText } from '../leaf/AboutCardWithText';
 import AppInstallButton from '../leaf/AppInstallButton';
 
 export const About = () => {
+  const [windowWidth, setWindowWidth] = useState<number>(typeof window !== 'undefined' ? window.innerWidth : 0);
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const isSmallScreen = windowWidth < 769;
+
   const titleStyle = 'text-center text-3xl font-medium';
   const mainText =
     'テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト';
@@ -28,7 +43,7 @@ export const About = () => {
       },
     ];
 
-    const baseStyle = 'flex justify-center';
+    const baseStyle = 'flex justify-center mx-10 md:mx-20';
     return aboutCardWithTextInfo.map((info, index) => {
       return (
         <div key={'aboutCartsWithImage_' + index} className={twMerge(baseStyle, index !== 0 ? 'mt-20' : 'mt-10')}>
@@ -36,7 +51,7 @@ export const About = () => {
             imagePath={info.imagePath}
             title={info.title}
             text={info.text}
-            isImageLeft={index % 2 === 0}
+            isImageLeft={isSmallScreen || index % 2 === 0}
           />
         </div>
       );
