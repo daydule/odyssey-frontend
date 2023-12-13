@@ -14,33 +14,29 @@ const MainCardInput = ({ label, handleChange, value, placeholder, handleClick, i
   };
   const inputType = (handleClick: Props['handleClick']) => {
     if (isActive) {
-      if (!handleClick) {
-        return;
-      } else {
-        return (
-          <div className='flex'>
-            <input
-              disabled={true}
-              className='text-right outline-none placeholder:text-gray-700'
-              onChange={onChange}
-              value={value || 0}
-              placeholder={value ? String(value) : '入力値'}
-              id={label}
-              type='tel'
-            />
-            <svg
-              onClick={() => handleClick(label)}
-              xmlns='http://www.w3.org/2000/svg'
-              width='20'
-              height='20'
-              viewBox='0 0 20 20'
-              fill='none'
-            >
-              <path d='M15 0L12.5 2.5L17.5 7.5L20 5L15 0ZM10 5L0 15V20H5L15 10L10 5Z' fill='#D3D3D3' />
-            </svg>
-          </div>
-        );
-      }
+      return (
+        <div className='flex'>
+          <input
+            disabled={true}
+            className='text-right outline-none placeholder:text-gray-700'
+            onChange={onChange}
+            value={value || 0}
+            placeholder={value ? String(value) : '入力値'}
+            id={label}
+            type='tel'
+          />
+          <svg
+            onClick={() => handleClick && handleClick(label)}
+            xmlns='http://www.w3.org/2000/svg'
+            width='20'
+            height='20'
+            viewBox='0 0 20 20'
+            fill='none'
+          >
+            <path d='M15 0L12.5 2.5L17.5 7.5L20 5L15 0ZM10 5L0 15V20H5L15 10L10 5Z' fill='#D3D3D3' />
+          </svg>
+        </div>
+      );
     } else {
       return (
         <input

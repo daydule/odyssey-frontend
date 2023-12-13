@@ -88,7 +88,7 @@ const MainCardWithMoneyResult = () => {
           value={annualIncome}
           placeholder='入力してください'
           handleClick={handleClick === CONSTANT.LABEL.ANNUAL_INCOME ? undefined : setHandleClick}
-          isActive={handleClick === CONSTANT.LABEL.ANNUAL_INCOME}
+          isActive={handleClick !== CONSTANT.LABEL.ANNUAL_INCOME}
         />
         <MainCardInput
           label={CONSTANT.LABEL.MONTHLY_INCOME}
@@ -96,7 +96,7 @@ const MainCardWithMoneyResult = () => {
           value={monthlyIncome}
           placeholder='入力してください'
           handleClick={handleClick === CONSTANT.LABEL.MONTHLY_INCOME ? undefined : setHandleClick}
-          isActive={handleClick === CONSTANT.LABEL.ANNUAL_INCOME}
+          isActive={handleClick !== CONSTANT.LABEL.MONTHLY_INCOME}
         />
         <MainCardInput
           label={CONSTANT.LABEL.HOURLY_WAGE}
@@ -104,14 +104,15 @@ const MainCardWithMoneyResult = () => {
           value={hourlyWage}
           placeholder='入力してください'
           handleClick={handleClick === CONSTANT.LABEL.HOURLY_WAGE ? undefined : setHandleClick}
-          isActive={handleClick === CONSTANT.LABEL.ANNUAL_INCOME}
+          isActive={handleClick !== CONSTANT.LABEL.HOURLY_WAGE}
         />
         <MainCardInput
           label={CONSTANT.LABEL.HOUR}
           handleChange={setHour}
           value={hour}
           placeholder='入力してください'
-          isActive={handleClick === CONSTANT.LABEL.ANNUAL_INCOME}
+          handleClick={handleClick === CONSTANT.LABEL.HOUR ? undefined : setHandleClick}
+          isActive={handleClick !== CONSTANT.LABEL.HOUR}
         />
         <Button buttonColor='bg-cyan-400' buttonText='計算' handleClick={calcMainPrice} />
       </div>

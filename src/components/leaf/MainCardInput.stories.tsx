@@ -4,7 +4,7 @@ import MainCardInput from './MainCardInput';
 
 const meta: Meta<typeof MainCardInput> = {
   component: MainCardInput,
-  title: 'Leaf/MainCardInput',
+  title: 'Leaf/Input',
   tags: ['autodocs'],
 };
 
@@ -22,6 +22,7 @@ export const CanInput: Story = {
     value: 0,
     placeholder: '入力してください',
     handleClick: undefined,
+    isActive: true,
   },
   render: function Button({ ...args }) {
     const [value, setValue] = useState<number>(0);
@@ -39,6 +40,7 @@ export const CanNotInput: Story = {
     handleChange: undefined,
     value: 0,
     handleClick: undefined,
+    isActive: true,
   },
   render: function Button({ ...args }) {
     const [value, setValue] = useState<number>(0);
