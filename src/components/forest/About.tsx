@@ -1,8 +1,14 @@
+import dynamic from 'next/dynamic';
 import { useMemo, useState, useEffect } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { AboutCardWithImage, AboutCardWithImageProps } from '../leaf/AboutCardWithImage';
-import { AboutCardWitTextProps, AboutCardWithText } from '../leaf/AboutCardWithText';
+import { AboutCardWithImageProps } from '../leaf/AboutCardWithImage';
+import { AboutCardWithText, AboutCardWitTextProps } from '../leaf/AboutCardWithText';
 import AppInstallButton from '../leaf/AppInstallButton';
+
+const AboutCardWithImage = dynamic<AboutCardWithImageProps>(
+  () => import('../leaf/AboutCardWithImage.tsx').then((module) => module.AboutCardWithImage),
+  { ssr: false },
+);
 
 export const About = () => {
   const [windowWidth, setWindowWidth] = useState<number>(typeof window !== 'undefined' ? window.innerWidth : 0);
