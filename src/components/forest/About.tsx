@@ -1,31 +1,11 @@
-import dynamic from 'next/dynamic';
-import { useMemo, useState, useEffect } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { AboutCardWithImageProps } from '../leaf/AboutCardWithImage';
+import { AboutCardWithImageProps } from '../../type/AboutCardWithImageProps.tsx';
+import { AboutCardWithImageLeft } from '../leaf/AboutCardWithImageLeft.tsx';
+import { AboutCardWithImageRight } from '../leaf/AboutCardWithImageRight.tsx';
 import { AboutCardWithText, AboutCardWitTextProps } from '../leaf/AboutCardWithText';
 import AppInstallButton from '../leaf/AppInstallButton';
 
-const AboutCardWithImage = dynamic<AboutCardWithImageProps>(
-  () => import('../leaf/AboutCardWithImage.tsx').then((module) => module.AboutCardWithImage),
-  { ssr: false },
-);
-
 export const About = () => {
-  const [windowWidth, setWindowWidth] = useState<number>(typeof window !== 'undefined' ? window.innerWidth : 0);
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const isSmallScreen = windowWidth < 769;
-
   const titleStyle = 'text-center text-3xl font-medium';
   const mainText =
     'テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト';
@@ -51,14 +31,14 @@ export const About = () => {
 
     const baseStyle = 'flex justify-center mx-10 md:mx-20';
     return aboutCardWithTextInfo.map((info, index) => {
+      const isLeft = index % 2 === 0;
       return (
         <div key={'aboutCartsWithImage_' + index} className={twMerge(baseStyle, index !== 0 ? 'mt-20' : 'mt-10')}>
-          <AboutCardWithImage
-            imagePath={info.imagePath}
-            title={info.title}
-            text={info.text}
-            isImageLeft={isSmallScreen || index % 2 === 0}
-          />
+          {isLeft ? (
+            <AboutCardWithImageLeft imagePath={info.imagePath} title={info.title} text={info.text} />
+          ) : (
+            <AboutCardWithImageRight imagePath={info.imagePath} title={info.title} text={info.text} />
+          )}
         </div>
       );
     });
@@ -68,7 +48,7 @@ export const About = () => {
     <div className='w-full'>
       <section>
         <p className={titleStyle}>Time is Moneyとは</p>
-        <div className='mt-10 flex justify-center'>
+        <div className='mx-10 mt-10 flex justify-center md:mx-20'>
           <AboutCardWithText text={mainText} />
         </div>
       </section>
