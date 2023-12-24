@@ -2,7 +2,7 @@ import { render, screen, fireEvent, getAllByRole } from '@testing-library/react'
 import { About } from './About';
 
 describe('Aboutページのforestコンポーネントのテスト', () => {
-  it('奇数番目は左に、偶数番目は右に画像が表示されること', () => {
+  it('画像付き説明テキストが複数あるとき、奇数番目は左に、偶数番目は右に画像が表示されること', () => {
     render(<About />);
 
     const aboutCardWithImages = screen.getAllByTestId('AboutCardWithImage');
