@@ -1,7 +1,7 @@
 import { twMerge } from 'tailwind-merge';
-import { AboutCardWithImageProps } from '../../type/AboutCardWithImageProps.tsx';
-import { AboutCardWithImageLeft } from '../leaf/AboutCardWithImageLeft.tsx';
-import { AboutCardWithImageRight } from '../leaf/AboutCardWithImageRight.tsx';
+import { AboutCardWithImageProps } from '../../type/AboutCardWithImageProps';
+import { AboutCardWithImageLeft } from '../leaf/AboutCardWithImageLeft';
+import { AboutCardWithImageRight } from '../leaf/AboutCardWithImageRight';
 import { AboutCardWithText, AboutCardWitTextProps } from '../leaf/AboutCardWithText';
 import AppInstallButton from '../leaf/AppInstallButton';
 
