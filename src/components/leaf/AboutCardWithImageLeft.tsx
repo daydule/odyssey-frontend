@@ -1,4 +1,4 @@
-import { AboutCardWithImageProps } from '../../type/AboutCardWithImageProps.tsx';
+import { AboutCardWithImageProps } from '../../type/AboutCardWithImageProps';
 
 export const AboutCardWithImageLeft = (props: AboutCardWithImageProps) => {
   // TODO: テキストが長すぎる時に枠を大きくする（画像の表示も変にならないようにする）
