@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 /**
  * 画像(左側)ありの説明カード
  */
-export const Default: Story = {
+export const LeftImage: Story = {
   args: {
     imagePath: '/images/icon_negate.jpeg',
     title: 'Time is Money',
