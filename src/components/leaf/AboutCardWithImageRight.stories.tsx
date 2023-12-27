@@ -1,27 +1,15 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { AboutCardWithImage } from './AboutCardWithImage';
+import { AboutCardWithImageRight } from './AboutCardWithImageRight';
 
-const meta: Meta<typeof AboutCardWithImage> = {
-  component: AboutCardWithImage,
-  title: 'Leaf/AboutCardWithImage',
+const meta: Meta<typeof AboutCardWithImageRight> = {
+  component: AboutCardWithImageRight,
+  title: 'Leaf/AboutCardWithImageRight',
   tags: ['autodocs'],
 };
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-
-/**
- * 画像(左側)ありの説明カード
- */
-export const Default: Story = {
-  args: {
-    imagePath: '/images/icon_negate.jpeg',
-    title: 'Time is Money',
-    text: 'テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト',
-    isImageLeft: true,
-  },
-};
 
 /**
  * 画像(右側)ありの説明カード
@@ -31,7 +19,6 @@ export const RightImage: Story = {
     imagePath: '/images/icon_negate.jpeg',
     title: 'Time is Money',
     text: 'テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト',
-    isImageLeft: false,
   },
 };
 
@@ -43,6 +30,5 @@ export const NoImage: Story = {
     imagePath: '/images/xxx.jpeg',
     title: 'Time is Money',
     text: 'テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト',
-    isImageLeft: false,
   },
 };
