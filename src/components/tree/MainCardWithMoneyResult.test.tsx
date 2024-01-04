@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import MainCardWithMoneyResult from './MainCardWithMoneyResult';
 import { MainPriceContext } from '../forest/PriceContext';
+import MainCardWithMoneyResult from './MainCardWithMoneyResult';
 
 describe('MainCardWithMoneyResultコンポーネントのテスト', () => {
   beforeEach(() => {
