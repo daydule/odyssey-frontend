@@ -36,7 +36,9 @@ const Main = () => {
     <PriceContext>
       <div className='flex h-full w-full items-center justify-center'>
         <div className='flex h-full w-3/5 items-center justify-around'>
-          <MainCardWithInput />
+          <div className='animate-rotate-scale-down-ver'>
+            <MainCardWithInput />
+          </div>
           <div
             onClick={() => setActiveCard('commodityResult')}
             className={activeCard === 'commodityResult' ? 'hidden' : 'animate-rotate-scale-down-ver'}
