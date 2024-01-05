@@ -6,9 +6,10 @@ jest.mock('next/navigation', () => ({
   useRouter: jest.fn(),
 }));
 
+const push = jest.fn();
 (useRouter as jest.Mock).mockReturnValue({
   query: {},
-  push: jest.fn(),
+  push,
 });
 
 describe('ヘッダーコンポーネントのテスト', () => {
@@ -20,5 +21,21 @@ describe('ヘッダーコンポーネントのテスト', () => {
 
     expect(headerLogo).toBeInTheDocument();
     expect(aboutLink).toBeInTheDocument();
+  });
+  it('Aboutリンクを押下するとpush関数が実行されること', () => {
+    render(<Header />);
+
+    const aboutLink = screen.getByTestId('Header_About_Link');
+    aboutLink.click();
+
+    expect(push).toHaveBeenCalled();
+  });
+  it('Headerロゴを押下するとpush関数が実行されること', () => {
+    render(<Header />);
+
+    const headerLogo = screen.getByTestId('Header_Logo');
+    headerLogo.click();
+
+    expect(push).toHaveBeenCalled();
   });
 });
