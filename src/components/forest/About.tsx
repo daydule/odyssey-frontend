@@ -45,7 +45,7 @@ export const About = () => {
   };
 
   return (
-    <div className='w-full'>
+    <div className='mt-16 w-full'>
       <section>
         <p className={titleStyle}>Time is Moneyとは</p>
         <div className='mx-10 mt-10 flex justify-center md:mx-20'>
