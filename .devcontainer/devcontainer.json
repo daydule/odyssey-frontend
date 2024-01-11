@@ -15,7 +15,8 @@
         "csstools.postcss",
         "eamodio.gitlens",
         "bradlc.vscode-tailwindcss",
-        "george-alisson.html-preview-vscode"
+        "george-alisson.html-preview-vscode",
+        "firsttris.vscode-jest-runner"
       ]
     }
   },
