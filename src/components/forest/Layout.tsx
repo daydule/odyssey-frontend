@@ -1,4 +1,3 @@
-// src/components/layout.tsx
 import { Header } from '@/components/leaf/Header';
 
 type Props = {
