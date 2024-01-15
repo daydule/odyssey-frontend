@@ -13,6 +13,22 @@ const config: Config = {
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'about-page-image': "url('/images/about_background_image.png')",
       },
+      animation: {
+        'rotate-scale-down-ver': 'rotate-scale-down-ver 0.7s linear   both',
+      },
+      keyframes: {
+        'rotate-scale-down-ver': {
+          '0%': {
+            transform: 'scale(1) rotateY(0)',
+          },
+          '50%': {
+            transform: 'scale(.9) rotateY(180deg)',
+          },
+          to: {
+            transform: 'scale(1) rotateY(360deg)',
+          },
+        },
+      },
     },
   },
   plugins: [],
