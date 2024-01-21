@@ -14,7 +14,7 @@ describe('MainCardTop', () => {
     expect(mainCardElement).toHaveStyle('background-color: bg-yellow-200');
 
     // Assert that the logo image is rendered with the correct alt text
-    const logoImage = getByAltText('ヘッダーロゴ画像');
+    const logoImage = getByAltText('トップカード画像');
     expect(logoImage).toBeInTheDocument();
     expect(logoImage).toHaveAttribute('src', '/images/header_logo.png');
   });

@@ -42,24 +42,28 @@ const Main = () => {
           <div
             onClick={() => setActiveLeftCard('topCard')}
             className={activeLeftCard === 'inputCard' ? 'animate-rotate-scale-down-ver' : 'hidden'}
+            data-testid='Main-inputCard'
           >
             <MainCardWithInput />
           </div>
           <div
             onClick={() => setActiveLeftCard('inputCard')}
             className={activeLeftCard !== 'inputCard' ? 'animate-rotate-scale-down-ver' : 'hidden'}
+            data-testid='Main-topCard'
           >
             <MainCardTop />
           </div>
           <div
             onClick={() => setActiveRightCard('commodityResultCard')}
             className={activeRightCard === 'moneyResultCard' ? 'animate-rotate-scale-down-ver' : 'hidden'}
+            data-testid='Main-moneyResultCard'
           >
             <MainCardWithMoneyResult />
           </div>
           <div
             onClick={() => setActiveRightCard('moneyResultCard')}
             className={activeRightCard !== 'moneyResultCard' ? 'animate-rotate-scale-down-ver' : 'hidden'}
+            data-testid='Main-commodityResultCard'
           >
             <MainCardWithCommodityResult commodities={commodities} />
           </div>
