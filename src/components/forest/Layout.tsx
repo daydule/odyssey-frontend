@@ -1,3 +1,4 @@
+import { Footer } from '@/components/leaf/Footer';
 import { Header } from '@/components/leaf/Header';
 
 type Props = {
@@ -10,7 +11,12 @@ export default function Layout({ children }: Props) {
       <header className='fixed h-20 w-full'>
         <Header />
       </header>
-      <section className='h-screen pt-20'>{children}</section>
+      <div className='h-screen pt-20'>
+        <section className='py-20'>{children}</section>
+        <footer className='mt-20 w-full'>
+          <Footer />
+        </footer>
+      </div>
     </div>
   );
 }
