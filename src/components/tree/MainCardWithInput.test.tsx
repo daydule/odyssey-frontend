@@ -52,8 +52,8 @@ describe('MainCardWithMoneyResult', () => {
     const monthlyIncome = 1200000 / CONSTANT.CALC.MONTH_OF_THE_YEAR;
     const hourlyWage = monthlyIncome / CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
 
-    expect(monthlyIncomeInputElement.value).toBe(monthlyIncome > 1 ? Math.round(monthlyIncome).toString() : '0');
-    expect(hourlyIncomeInputElement.value).toBe(hourlyWage > 1 ? Math.round(hourlyWage).toString() : '0');
+    expect(monthlyIncomeInputElement.value).toBe(Math.round(monthlyIncome).toString());
+    expect(hourlyIncomeInputElement.value).toBe(Math.round(hourlyWage).toString());
 
     // 年収の入力（0の場合）
     fireEvent.change(screen.getByTestId(annualIncomeInputTestId), {
@@ -64,8 +64,8 @@ describe('MainCardWithMoneyResult', () => {
     const monthlyIncomeZero = 0 / CONSTANT.CALC.MONTH_OF_THE_YEAR;
     const hourlyWageZero = monthlyIncomeZero / CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
 
-    expect(monthlyIncomeInputElement.value).toBe(monthlyIncomeZero > 1 ? Math.round(monthlyIncome).toString() : '0');
-    expect(hourlyIncomeInputElement.value).toBe(hourlyWageZero > 1 ? Math.round(hourlyWage).toString() : '0');
+    expect(monthlyIncomeInputElement.value).toBe('0');
+    expect(hourlyIncomeInputElement.value).toBe('0');
   });
 
   test('月収入力時の状態が正しいこと', () => {
@@ -84,7 +84,7 @@ describe('MainCardWithMoneyResult', () => {
     const hourlyWage = 100000 / CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
 
     expect(annualIncomeInputElement.value).toBe(annualIncome.toString());
-    expect(hourlyIncomeInputElement.value).toBe(hourlyWage > 1 ? Math.round(hourlyWage).toString() : '0');
+    expect(hourlyIncomeInputElement.value).toBe(Math.round(hourlyWage).toString());
 
     // 月収の入力(0の場合)
     fireEvent.change(screen.getByTestId(monthlyIncomeInputTestId), { target: { value: '0' } });
@@ -94,7 +94,7 @@ describe('MainCardWithMoneyResult', () => {
     const hourlyWageZero = 0 / CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
 
     expect(annualIncomeInputElement.value).toBe(annualIncomeZero.toString());
-    expect(hourlyIncomeInputElement.value).toBe(hourlyWageZero > 1 ? Math.round(hourlyWage).toString() : '0');
+    expect(hourlyIncomeInputElement.value).toBe('0');
   });
 
   test('時給入力時の状態が正しいこと', () => {
