@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
+import { useState, ComponentProps } from 'react';
 import MainCardInput from './MainCardInput';
 
 const meta: Meta<typeof MainCardInput> = {
@@ -10,7 +10,7 @@ const meta: Meta<typeof MainCardInput> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta> & { args: ComponentProps<typeof MainCardInput> };
 
 /**
  * 入力欄（入力可）
@@ -18,11 +18,13 @@ type Story = StoryObj<typeof meta>;
 export const CanInput: Story = {
   args: {
     label: '年収',
-    handleChange: undefined,
+    handleChange: () => {},
     value: 0,
     placeholder: '入力してください',
-    handleClick: undefined,
+    handleClick: () => {},
     isActive: true,
+    unit: '¥',
+    unitPosition: 'left',
   },
   render: function Button({ ...args }) {
     const [value, setValue] = useState<number>(0);
@@ -37,10 +39,13 @@ export const CanInput: Story = {
 export const CanNotInput: Story = {
   args: {
     label: '年収',
-    handleChange: undefined,
+    handleChange: () => {},
     value: 0,
-    handleClick: undefined,
+    handleClick: () => {},
     isActive: true,
+    unit: '¥',
+    unitPosition: 'left',
+    placeholder: '入力してください',
   },
   render: function Button({ ...args }) {
     const [value, setValue] = useState<number>(0);
