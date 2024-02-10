@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import React from 'react';
-import MainCardTop from './MainCardTop';
+import MainCardTop from './MainCardWithLogo';
 
 describe('MainCardTop', () => {
   it('renders the MainCard component with correct props', () => {

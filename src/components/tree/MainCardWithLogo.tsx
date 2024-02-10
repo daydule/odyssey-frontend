@@ -1,5 +1,5 @@
 import React from 'react';
-import MainCard from '../../components/tree/MainCard';
+import MainCard from './MainCard';
 
 const MainCardTop = () => {
   return (

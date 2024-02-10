@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import MainCardTop from './MainCardTop';
+import { ComponentProps } from 'react';
+import MainCardTop from './MainCardWithLogo';
 
 const meta: Meta<typeof MainCardTop> = {
   component: MainCardTop,
@@ -9,7 +10,7 @@ const meta: Meta<typeof MainCardTop> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta> & { args: ComponentProps<typeof MainCardTop> };
 
 /**
  * トップカード表示
