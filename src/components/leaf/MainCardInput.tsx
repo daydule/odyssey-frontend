@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { convertValueToDisplayText } from '@/utils/formatting';
 
 type Props = {
   label: string;
@@ -22,10 +23,6 @@ const MainCardInput = ({
   unitPosition,
 }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const convertValueToDisplayText = (unit: string, unitPosition: 'left' | 'right', value: number) => {
-    const formattedValue = value.toLocaleString();
-    return unitPosition === 'left' ? `${unit}${formattedValue}` : `${formattedValue}${unit}`;
-  };
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const result = parseInt(e.target.value, 10) || 0;
     handleChange(result);
