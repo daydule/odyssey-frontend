@@ -4,7 +4,7 @@ import { useState } from 'react';
 import MainCardWithInput from '../../components/tree/MainCardWithInput';
 import MainCardWithMoneyResult from '../../components/tree/MainCardWithMoneyResult';
 import MainCardWithCommodityResult from '../tree/MainCardWithCommodityResult';
-import MainCardTop from '../tree/MainCardWithLogo';
+import MainCardWithLogo from '../tree/MainCardWithLogo';
 import PriceContext from './PriceContext';
 
 interface Commodity {
@@ -51,7 +51,7 @@ const Main = () => {
             className={activeLeftCard !== 'inputCard' ? 'animate-rotate-scale-down-ver' : 'hidden'}
             data-testid='Main-topCard'
           >
-            <MainCardTop />
+            <MainCardWithLogo />
           </div>
           <div
             onClick={() => setActiveRightCard('commodityResultCard')}

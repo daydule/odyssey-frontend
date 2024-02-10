@@ -1,16 +1,16 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { ComponentProps } from 'react';
-import MainCardTop from './MainCardWithLogo';
+import MainCardWithLogo from './MainCardWithLogo';
 
-const meta: Meta<typeof MainCardTop> = {
-  component: MainCardTop,
-  title: 'Tree/MainCardTop',
+const meta: Meta<typeof MainCardWithLogo> = {
+  component: MainCardWithLogo,
+  title: 'Tree/MainCardWithLogo',
   tags: ['autodocs'],
 };
 
 export default meta;
 
-type Story = StoryObj<typeof meta> & { args: ComponentProps<typeof MainCardTop> };
+type Story = StoryObj<typeof meta> & { args: ComponentProps<typeof MainCardWithLogo> };
 
 /**
  * トップカード表示

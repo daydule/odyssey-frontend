@@ -1,7 +1,7 @@
 import React from 'react';
 import MainCard from './MainCard';
 
-const MainCardTop = () => {
+const MainCardWithLogo = () => {
   return (
     <MainCard title='Time is Money' headerBgColor='bg-yellow-200'>
       <div className='m-auto'>
@@ -15,4 +15,4 @@ const MainCardTop = () => {
   );
 };
 
-export default MainCardTop;
+export default MainCardWithLogo;

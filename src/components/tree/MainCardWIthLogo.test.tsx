@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 import React from 'react';
-import MainCardTop from './MainCardWithLogo';
+import MainCardWithLogo from './MainCardWithLogo';
 
-describe('MainCardTop', () => {
+describe('MainCardWithLogo', () => {
   it('renders the MainCard component with correct props', () => {
-    const { getByText, getByAltText } = render(<MainCardTop />);
+    const { getByText, getByAltText } = render(<MainCardWithLogo />);
 
     // Assert that the MainCard component is rendered
     const mainCardElement = getByText('Time is Money');
