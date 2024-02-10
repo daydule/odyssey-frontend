@@ -1,7 +1,8 @@
-import { useMemo } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { AboutCardWithImage, AboutCardWithImageProps } from '../leaf/AboutCardWithImage';
-import { AboutCardWitTextProps, AboutCardWithText } from '../leaf/AboutCardWithText';
+import { AboutCardWithImageProps } from '../../type/AboutCardWithImageProps';
+import { AboutCardWithImageLeft } from '../leaf/AboutCardWithImageLeft';
+import { AboutCardWithImageRight } from '../leaf/AboutCardWithImageRight';
+import { AboutCardWithText, AboutCardWitTextProps } from '../leaf/AboutCardWithText';
 import AppInstallButton from '../leaf/AppInstallButton';
 
 export const About = () => {
@@ -28,26 +29,26 @@ export const About = () => {
       },
     ];
 
-    const baseStyle = 'flex justify-center';
+    const baseStyle = 'flex justify-center mx-10 md:mx-20';
     return aboutCardWithTextInfo.map((info, index) => {
+      const isLeft = index % 2 === 0;
       return (
         <div key={'aboutCartsWithImage_' + index} className={twMerge(baseStyle, index !== 0 ? 'mt-20' : 'mt-10')}>
-          <AboutCardWithImage
-            imagePath={info.imagePath}
-            title={info.title}
-            text={info.text}
-            isImageLeft={index % 2 === 0}
-          />
+          {isLeft ? (
+            <AboutCardWithImageLeft imagePath={info.imagePath} title={info.title} text={info.text} />
+          ) : (
+            <AboutCardWithImageRight imagePath={info.imagePath} title={info.title} text={info.text} />
+          )}
         </div>
       );
     });
   };
 
   return (
-    <div className='w-full'>
+    <div className='mt-16 w-full'>
       <section>
         <p className={titleStyle}>Time is Moneyとは</p>
-        <div className='mt-10 flex justify-center'>
+        <div className='mx-10 mt-10 flex justify-center md:mx-20'>
           <AboutCardWithText text={mainText} />
         </div>
       </section>
