@@ -1,13 +1,28 @@
+import { useEffect, useRef } from 'react';
+import { convertValueToDisplayText } from '../../utils/formatting';
+
 type Props = {
   label: string;
   handleChange: React.Dispatch<React.SetStateAction<number>>; // フォームに入力した値を他のフォームに連携するためのSet関数が入る
   value: number;
   placeholder: string;
-  handleClick?: React.Dispatch<React.SetStateAction<string>>; // ユーザーが現在アクティブ状態にしているフォームを特定するためのSet関数が入る
+  handleClick: React.Dispatch<React.SetStateAction<string>>; // ユーザーが現在アクティブ状態にしているフォームを特定するためのSet関数が入る
   isActive: boolean;
+  unit: string;
+  unitPosition: 'left' | 'right';
 };
 
-const MainCardInput = ({ label, handleChange, value, placeholder, handleClick, isActive }: Props) => {
+const MainCardInput = ({
+  label,
+  handleChange,
+  value,
+  placeholder,
+  handleClick,
+  isActive,
+  unit,
+  unitPosition,
+}: Props) => {
+  const inputRef = useRef<HTMLInputElement>(null);
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const result = parseInt(e.target.value, 10) || 0;
     handleChange(result);
@@ -15,18 +30,18 @@ const MainCardInput = ({ label, handleChange, value, placeholder, handleClick, i
   const inputType = (handleClick: Props['handleClick']) => {
     if (isActive) {
       return (
-        <div className='flex'>
+        <div className='flex justify-end gap-2'>
           <input
             disabled={true}
-            className='text-right outline-none placeholder:text-gray-700'
+            className='max-w-[70%] text-right outline-none placeholder:text-gray-700'
             onChange={onChange}
-            value={value || 0}
+            value={convertValueToDisplayText(unit, unitPosition, value) || 0}
             placeholder={value ? String(value) : '入力値'}
             id={label}
             type='tel'
           />
           <svg
-            onClick={() => handleClick && handleClick(label)}
+            onClick={() => handleClick(label)}
             xmlns='http://www.w3.org/2000/svg'
             width='20'
             height='20'
@@ -42,18 +57,28 @@ const MainCardInput = ({ label, handleChange, value, placeholder, handleClick, i
         <input
           className='text-right outline-none'
           onChange={onChange}
+          onBlur={() => handleClick('')}
           placeholder={placeholder}
           value={value || 0}
           id={label}
           type='tel'
+          ref={inputRef}
         />
       );
     }
   };
 
+  useEffect(() => {
+    if (!isActive) {
+      inputRef.current?.focus();
+    }
+  }, [isActive]);
+
   return (
-    <div className='flex justify-between border-b-2'>
-      <label htmlFor={label}>{label}</label>
+    <div className='flex justify-between gap-x-2 border-b-2'>
+      <label className='whitespace-nowrap' htmlFor={label}>
+        {label}
+      </label>
       {inputType(handleClick)}
     </div>
   );
