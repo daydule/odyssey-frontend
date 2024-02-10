@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { convertValueToDisplayText } from '@/utils/formatting';
+import { convertValueToDisplayText } from '../../utils/formatting';
 
 type Props = {
   label: string;
