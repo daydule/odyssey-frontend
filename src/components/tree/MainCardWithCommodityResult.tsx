@@ -3,7 +3,7 @@ import CommodityCard, { type Commodity } from '../leaf/CommodityCard';
 import MainCard from './MainCard';
 
 type Props = {
-  commodities: Commodity[];
+  commodities: Commodity;
 };
 
 const MainCardWithCommodityResult = ({ commodities }: Props) => {
