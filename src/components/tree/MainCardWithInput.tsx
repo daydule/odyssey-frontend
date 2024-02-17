@@ -11,7 +11,7 @@ const MainCardWithMoneyResult = () => {
   const [handleClick, setHandleClick] = useState<string>('');
 
   // 収入（年収・月給・時給）入力値
-  const [currentInput, setCurrentInput] = useState<number>(0);
+  const [currentInput, setCurrentInput] = useState<number>(1);
   const [annualIncome, setAnnualIncome] = useState<number>(0);
   const [monthlyIncome, setMonthlyIncome] = useState<number>(0);
   const [hourlyWage, setHourlyWage] = useState<number>(0);
