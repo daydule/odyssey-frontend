@@ -8,7 +8,7 @@ export const AboutCardWithImageLeft = (props: AboutCardWithImageProps) => {
       className='flex flex-col rounded-b-3xl border shadow-lg md:h-[384px] md:flex-row md:rounded-[50px] lg:w-[1024px]'
       data-testid='AboutCardWithImage'
     >
-      <div className='w-full text-center md:w-1/2' data-testid='AboutCardWithImage_ImageArea'>
+      <div className='text-center md:w-1/2' data-testid='AboutCardWithImage_ImageArea'>
         <img
           className='h-full w-full rounded-t-3xl bg-gray-300 object-cover md:rounded-[50px]'
           src={props.imagePath}
