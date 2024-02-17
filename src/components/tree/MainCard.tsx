@@ -12,7 +12,7 @@ const MainCard = ({ children, title, headerBgColor }: Props) => {
   const headerSectionClass = twMerge(headerSectionBaseClass, headerBgColor);
 
   return (
-    <article className='flex h-[580px] w-[330px] flex-col rounded-[50px] bg-[#FFFFFF] text-[#505050] shadow-[0px_0px_10px_5px_rgba(0,0,0,0.25)]'>
+    <article className='flex h-[580px] w-[333px] flex-col rounded-[50px] bg-[#FFFFFF] text-[#505050] shadow-[0px_0px_10px_5px_rgba(0,0,0,0.25)]'>
       <section className={headerSectionClass}>
         <svg xmlns='http://www.w3.org/2000/svg' width='12' height='13' viewBox='0 0 12 13' fill='none'>
           <circle cx='6' cy='6.29102' r='6' fill='white' />
