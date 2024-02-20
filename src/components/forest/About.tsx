@@ -45,16 +45,12 @@ export const About = () => {
   };
 
   return (
-    <div className='mt-16 w-full'>
+    <div className='w-full'>
       <section>
         <p className={titleStyle}>Time is Moneyとは</p>
         <div className='mx-10 mt-10 flex justify-center md:mx-20'>
           <AboutCardWithText text={mainText} />
         </div>
-      </section>
-      <section className='mt-24'>
-        <p className={titleStyle}>機能紹介</p>
-        {aboutCardsWithImage()}
       </section>
       <section className='mt-24'>
         <p className={titleStyle}>アプリインストール</p>
@@ -66,6 +62,10 @@ export const About = () => {
             <AppInstallButton platform='googlePlay' />
           </div>
         </div>
+      </section>
+      <section className='mt-24'>
+        <p className={titleStyle}>機能紹介</p>
+        {aboutCardsWithImage()}
       </section>
     </div>
   );
