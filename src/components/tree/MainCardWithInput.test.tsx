@@ -3,6 +3,7 @@ import React from 'react';
 import { SetMainPriceContext } from '../forest/PriceContext';
 import MainCardWithMoneyResult from './MainCardWithInput';
 import { CONSTANT } from '@/constant/default';
+import { convertValueToDisplayText } from '@/utils/formatting';
 
 const annualIncomeInputTestId = 'MainCardInput-' + CONSTANT.LABEL.ANNUAL_INCOME;
 const annualIncomeButtonTestId = 'MainCardInputButton-' + CONSTANT.LABEL.ANNUAL_INCOME;
@@ -51,9 +52,14 @@ describe('MainCardWithMoneyResult', () => {
     // 月収と時給の計算を確認
     const monthlyIncome = 1200000 / CONSTANT.CALC.MONTH_OF_THE_YEAR;
     const hourlyWage = monthlyIncome / CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
+    const unit = '¥';
+    const unitPosition = 'left';
 
-    expect(monthlyIncomeInputElement.value).toBe(Math.round(monthlyIncome).toString());
-    expect(hourlyIncomeInputElement.value).toBe(Math.round(hourlyWage).toString());
+    const monthlyIncomeConvert = convertValueToDisplayText(unit, unitPosition, Math.round(monthlyIncome));
+    const hourlyWageConvert = convertValueToDisplayText(unit, unitPosition, Math.round(hourlyWage));
+
+    expect(monthlyIncomeInputElement.value).toBe(monthlyIncomeConvert);
+    expect(hourlyIncomeInputElement.value).toBe(hourlyWageConvert);
 
     // 年収の入力（0の場合）
     fireEvent.change(screen.getByTestId(annualIncomeInputTestId), {
@@ -64,8 +70,8 @@ describe('MainCardWithMoneyResult', () => {
     const monthlyIncomeZero = 0 / CONSTANT.CALC.MONTH_OF_THE_YEAR;
     const hourlyWageZero = monthlyIncomeZero / CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
 
-    expect(monthlyIncomeInputElement.value).toBe('0');
-    expect(hourlyIncomeInputElement.value).toBe('0');
+    expect(monthlyIncomeInputElement.value).toBe('¥0');
+    expect(hourlyIncomeInputElement.value).toBe('¥0');
   });
 
   test('月収入力時の状態が正しいこと', () => {
@@ -82,9 +88,14 @@ describe('MainCardWithMoneyResult', () => {
     // 年収と時給の計算を確認
     const annualIncome = 100000 * CONSTANT.CALC.MONTH_OF_THE_YEAR;
     const hourlyWage = 100000 / CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
+    const unit = '¥';
+    const unitPosition = 'left';
 
-    expect(annualIncomeInputElement.value).toBe(annualIncome.toString());
-    expect(hourlyIncomeInputElement.value).toBe(Math.round(hourlyWage).toString());
+    const annualIncomeConvert = convertValueToDisplayText(unit, unitPosition, annualIncome);
+    const hourlyWageConvert = convertValueToDisplayText(unit, unitPosition, Math.round(hourlyWage));
+
+    expect(annualIncomeInputElement.value).toBe(annualIncomeConvert);
+    expect(hourlyIncomeInputElement.value).toBe(hourlyWageConvert);
 
     // 月収の入力(0の場合)
     fireEvent.change(screen.getByTestId(monthlyIncomeInputTestId), { target: { value: '0' } });
@@ -93,8 +104,8 @@ describe('MainCardWithMoneyResult', () => {
     const annualIncomeZero = 0 * CONSTANT.CALC.MONTH_OF_THE_YEAR;
     const hourlyWageZero = 0 / CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
 
-    expect(annualIncomeInputElement.value).toBe(annualIncomeZero.toString());
-    expect(hourlyIncomeInputElement.value).toBe('0');
+    expect(annualIncomeInputElement.value).toBe('¥' + annualIncomeZero.toString());
+    expect(hourlyIncomeInputElement.value).toBe('¥0');
   });
 
   test('時給入力時の状態が正しいこと', () => {
@@ -111,9 +122,14 @@ describe('MainCardWithMoneyResult', () => {
     // 月収と年収の計算を確認
     const monthlyIncome = 1100 * CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
     const annualIncome = monthlyIncome * CONSTANT.CALC.MONTH_OF_THE_YEAR;
+    const unit = '¥';
+    const unitPosition = 'left';
 
-    expect(monthlyIncomeInputElement.value).toBe(monthlyIncome.toString());
-    expect(annualIncomeInputElement.value).toBe(annualIncome.toString());
+    const monthlyIncomeConvert = convertValueToDisplayText(unit, unitPosition, monthlyIncome);
+    const annualIncomeConvert = convertValueToDisplayText(unit, unitPosition, annualIncome);
+
+    expect(monthlyIncomeInputElement.value).toBe(monthlyIncomeConvert);
+    expect(annualIncomeInputElement.value).toBe(annualIncomeConvert);
 
     // 時給の入力（0の場合）
     fireEvent.change(screen.getByTestId(hourlyIncomeInputTestId), { target: { value: '0' } });
@@ -122,8 +138,8 @@ describe('MainCardWithMoneyResult', () => {
     const monthlyIncomeZero = 0 * CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
     const annualIncomeZero = monthlyIncomeZero * CONSTANT.CALC.MONTH_OF_THE_YEAR;
 
-    expect(monthlyIncomeInputElement.value).toBe(monthlyIncomeZero.toString());
-    expect(annualIncomeInputElement.value).toBe(annualIncomeZero.toString());
+    expect(monthlyIncomeInputElement.value).toBe('¥' + monthlyIncomeZero.toString());
+    expect(annualIncomeInputElement.value).toBe('¥' + annualIncomeZero.toString());
   });
 
   // ボタンクリックイベントのテスト
