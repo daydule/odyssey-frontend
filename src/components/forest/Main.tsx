@@ -21,10 +21,6 @@ const Main = () => {
       <div className='flex h-full w-full items-center justify-center'>
         <div className='flex h-full w-3/5 items-center justify-around'>
           <div
-            /**
-             * TODO:
-             * rakutenのクレジット表記（https://webservice.rakuten.co.jp/guide/credit）
-             */
             className={activeLeftCard === 'inputCard' ? 'animate-rotate-scale-down-ver' : 'hidden'}
             data-testid='Main-inputCard'
           >
