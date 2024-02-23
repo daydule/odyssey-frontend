@@ -3,7 +3,11 @@ import MainCard from '../../components/tree/MainCard';
 import { useNotInitializingEffect } from '../../hooks/useNotInitializingEffect';
 import { MainPriceContext } from '../forest/PriceContext';
 
-const MainCardWithMoneyResult = () => {
+interface MainCardWithMoneyResultProps {
+  rotateCard?: () => void;
+}
+
+const MainCardWithMoneyResult = ({rotateCard}: MainCardWithMoneyResultProps) => {
   const { mainPrice } = useContext(MainPriceContext);
   const isFirstRender = useNotInitializingEffect();
 
@@ -23,7 +27,7 @@ const MainCardWithMoneyResult = () => {
   }, [mainPrice]);
 
   return (
-    <MainCard title='Time is Money' headerBgColor='bg-cyan-400'>
+    <MainCard title='Time is Money' headerBgColor='bg-cyan-400' rotateCard={rotateCard}>
       <div className='flex h-[124px] w-[173px] flex-col items-end justify-between'>
         <p className='text-[33px]'>¥ {mainPrice || 0}</p>
         <p className='text-[14px]'>前回：¥ {previousPrice || '---'}</p>

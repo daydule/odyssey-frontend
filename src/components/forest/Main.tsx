@@ -23,35 +23,33 @@ const Main = () => {
           <div
             /**
              * TODO:
-             * onClickが正常に動くように修正
              * rakutenのクレジット表記（https://webservice.rakuten.co.jp/guide/credit）
              */
-            // onClick={() => setActiveLeftCard('topCard')}
             className={activeLeftCard === 'inputCard' ? 'animate-rotate-scale-down-ver' : 'hidden'}
             data-testid='Main-inputCard'
           >
-            <MainCardWithInput setCommodities={setCommodities} />
+            <MainCardWithInput setCommodities={setCommodities} rotateCard={() => setActiveLeftCard('topCard')} />
           </div>
           <div
-            onClick={() => setActiveLeftCard('inputCard')}
             className={activeLeftCard !== 'inputCard' ? 'animate-rotate-scale-down-ver' : 'hidden'}
             data-testid='Main-topCard'
           >
-            <MainCardWithLogo />
+            <MainCardWithLogo rotateCard={() => setActiveLeftCard('inputCard')} />
           </div>
           <div
-            onClick={() => setActiveRightCard('commodityResultCard')}
             className={activeRightCard === 'moneyResultCard' ? 'animate-rotate-scale-down-ver' : 'hidden'}
             data-testid='Main-moneyResultCard'
           >
-            <MainCardWithMoneyResult />
+            <MainCardWithMoneyResult rotateCard={() => setActiveRightCard('commodityResultCard')} />
           </div>
           <div
-            onClick={() => setActiveRightCard('moneyResultCard')}
             className={activeRightCard !== 'moneyResultCard' ? 'animate-rotate-scale-down-ver' : 'hidden'}
             data-testid='Main-commodityResultCard'
           >
-            <MainCardWithCommodityResult commodities={commodities} />
+            <MainCardWithCommodityResult
+              commodities={commodities}
+              rotateCard={() => setActiveRightCard('moneyResultCard')}
+            />
           </div>
         </div>
       </div>

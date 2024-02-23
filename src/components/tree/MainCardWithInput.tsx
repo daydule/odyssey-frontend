@@ -10,9 +10,10 @@ import MainCardInput from '../leaf/MainCardInput';
 
 interface MainCardWithInputProps {
   setCommodities: React.Dispatch<React.SetStateAction<Commodity[]>>;
+  rotateCard?: () => void;
 }
 
-const MainCardWithInput = ({ setCommodities }: MainCardWithInputProps) => {
+const MainCardWithInput = ({ setCommodities, rotateCard }: MainCardWithInputProps) => {
   // 入力フォームのアクティブ管理
   const [handleClick, setHandleClick] = useState<string>('');
 
@@ -100,7 +101,7 @@ const MainCardWithInput = ({ setCommodities }: MainCardWithInputProps) => {
   }, [currentInput]);
 
   return (
-    <MainCard title='Time is Money' headerBgColor='bg-cyan-400'>
+    <MainCard title='Time is Money' headerBgColor='bg-cyan-400' rotateCard={rotateCard}>
       <div className='flex h-full w-full flex-col justify-between'>
         <MainCardInput
           label={CONSTANT.LABEL.ANNUAL_INCOME}

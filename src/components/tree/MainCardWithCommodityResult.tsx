@@ -4,9 +4,10 @@ import MainCard from './MainCard';
 
 type Props = {
   commodities: Commodity[];
+  rotateCard?: () => void;
 };
 
-const MainCardWithCommodityResult = ({ commodities }: Props) => {
+const MainCardWithCommodityResult = ({ commodities, rotateCard }: Props) => {
   const displayCommodities = useMemo(() => {
     return (
       <ul className='box-content h-full w-full overflow-y-scroll pr-4'>
@@ -22,7 +23,7 @@ const MainCardWithCommodityResult = ({ commodities }: Props) => {
   }, [commodities]);
 
   return (
-    <MainCard title='購入可能商品' headerBgColor='bg-yellow-200'>
+    <MainCard title='購入可能商品' headerBgColor='bg-yellow-200' rotateCard={rotateCard}>
       {commodities.length === 0 && (
         <div>
           <p>ここには購入可能な商品が表示されます。</p>
