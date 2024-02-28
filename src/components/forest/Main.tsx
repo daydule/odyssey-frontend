@@ -4,6 +4,7 @@ import { useState } from 'react';
 import MainCardWithInput from '../../components/tree/MainCardWithInput';
 import MainCardWithMoneyResult from '../../components/tree/MainCardWithMoneyResult';
 import MainCardWithCommodityResult from '../tree/MainCardWithCommodityResult';
+import MainCardWithLogo from '../tree/MainCardWithLogo';
 import PriceContext from './PriceContext';
 
 interface Commodity {
@@ -14,10 +15,12 @@ interface Commodity {
   title: string;
 }
 
-type ActiveCard = 'moneyResult' | 'commodityResult';
+type ActiveLeftCard = 'inputCard' | 'topCard';
+type ActiveRightCard = 'moneyResultCard' | 'commodityResultCard';
 
 const Main = () => {
-  const [activeCard, setActiveCard] = useState<ActiveCard>('moneyResult');
+  const [activeLeftCard, setActiveLeftCard] = useState<ActiveLeftCard>('inputCard');
+  const [activeRightCard, setActiveRightCard] = useState<ActiveRightCard>('moneyResultCard');
   const commodities: Commodity[] = [
     { name: 'りんご', price: 100, imagePath: 'images/icon_negate.jpeg', altText: 'Apple', title: 'Apple' },
     { name: 'みかん', price: 200, imagePath: 'images/icon_negate.jpeg', altText: 'Orange', title: 'Orange' },
@@ -36,18 +39,31 @@ const Main = () => {
     <PriceContext>
       <div className='flex h-full w-full items-center justify-center'>
         <div className='flex h-full w-3/5 items-center justify-around'>
-          <div className='animate-rotate-scale-down-ver'>
+          <div
+            onClick={() => setActiveLeftCard('topCard')}
+            className={activeLeftCard === 'inputCard' ? 'animate-rotate-scale-down-ver' : 'hidden'}
+            data-testid='Main-inputCard'
+          >
             <MainCardWithInput />
           </div>
           <div
-            onClick={() => setActiveCard('commodityResult')}
-            className={activeCard === 'commodityResult' ? 'hidden' : 'animate-rotate-scale-down-ver'}
+            onClick={() => setActiveLeftCard('inputCard')}
+            className={activeLeftCard !== 'inputCard' ? 'animate-rotate-scale-down-ver' : 'hidden'}
+            data-testid='Main-topCard'
+          >
+            <MainCardWithLogo />
+          </div>
+          <div
+            onClick={() => setActiveRightCard('commodityResultCard')}
+            className={activeRightCard === 'moneyResultCard' ? 'animate-rotate-scale-down-ver' : 'hidden'}
+            data-testid='Main-moneyResultCard'
           >
             <MainCardWithMoneyResult />
           </div>
           <div
-            onClick={() => setActiveCard('moneyResult')}
-            className={activeCard === 'moneyResult' ? 'hidden' : 'animate-rotate-scale-down-ver'}
+            onClick={() => setActiveRightCard('moneyResultCard')}
+            className={activeRightCard !== 'moneyResultCard' ? 'animate-rotate-scale-down-ver' : 'hidden'}
+            data-testid='Main-commodityResultCard'
           >
             <MainCardWithCommodityResult commodities={commodities} />
           </div>
