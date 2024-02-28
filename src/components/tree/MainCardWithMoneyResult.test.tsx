@@ -14,7 +14,7 @@ describe('MainCardWithMoneyResultコンポーネントのテスト', () => {
         <MainCardWithMoneyResult />
       </MainPriceContext.Provider>,
     );
-    const priceElement = screen.getByText(`¥ ${mainPrice}`);
+    const priceElement = screen.getByText(`¥ 1,000`);
     expect(priceElement).toBeInTheDocument();
   });
 
