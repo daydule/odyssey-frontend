@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import CommodityCard from './CommodityCard';
+import { ComponentProps } from 'react';
 
 const meta: Meta<typeof CommodityCard> = {
   component: CommodityCard,
@@ -9,7 +10,7 @@ const meta: Meta<typeof CommodityCard> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta> & { args: ComponentProps<typeof CommodityCard> };
 
 /**
  * メインページの商品カード表示

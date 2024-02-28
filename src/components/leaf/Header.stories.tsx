@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Header } from './Header';
+import { ComponentProps } from 'react';
 
 const meta: Meta<typeof Header> = {
   component: Header,
@@ -14,7 +15,7 @@ const meta: Meta<typeof Header> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta> & { args: ComponentProps<typeof Header> };
 
 /**
  * ヘッダー
