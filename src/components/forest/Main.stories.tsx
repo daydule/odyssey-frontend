@@ -15,4 +15,6 @@ type Story = StoryObj<typeof meta> & { args: ComponentProps<typeof Main> };
 /**
  * メインページ
  */
-export const Default: Story = {};
+export const Default: Story = {
+  args: {},
+};
