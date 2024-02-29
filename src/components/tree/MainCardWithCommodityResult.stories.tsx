@@ -84,3 +84,12 @@ export const ManyCommodities: Story = {
     ],
   },
 };
+
+/**
+ * 商品がない場合
+ */
+export const NoCommodities: Story = {
+  args: {
+    commodities: [],
+  },
+};
