@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Time is Money',
     description: 'あなたが過ごした時間をお金に換算してみませんか？',
-    // TODO: 本番ドメインが確定次第、以下の項目を修正する
     url: 'https://time-is-money.habitat-hub.com/',
     siteName: 'Time is Money',
     locale: 'ja_JP',
