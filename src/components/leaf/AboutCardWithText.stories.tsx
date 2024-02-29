@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
+import { ComponentProps } from 'react';
 import { AboutCardWithText } from './AboutCardWithText';
 
 const meta: Meta<typeof AboutCardWithText> = {
@@ -9,7 +10,7 @@ const meta: Meta<typeof AboutCardWithText> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta> & { args: ComponentProps<typeof AboutCardWithText> };
 
 /**
  * 説明カード(テキスト短め)

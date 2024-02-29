@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
+import { ComponentProps } from 'react';
 import { About } from './About';
 
 const meta: Meta<typeof About> = {
@@ -9,7 +10,7 @@ const meta: Meta<typeof About> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta> & { args: ComponentProps<typeof About> };
 
 export const Default: Story = {
   args: {},

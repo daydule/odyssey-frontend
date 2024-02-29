@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
+import { ComponentProps } from 'react';
 import { MainPriceContext } from '../../components/forest/PriceContext';
 import MainCardWithMoneyResult from './MainCardWithMoneyResult';
 
@@ -10,12 +11,13 @@ const meta: Meta<typeof MainCardWithMoneyResult> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta> & { args: ComponentProps<typeof MainCardWithMoneyResult> };
 
 /**
  * 計算結果表示カード
  */
 export const Default: Story = {
+  args: {},
   decorators: [
     (Story) => {
       return (
