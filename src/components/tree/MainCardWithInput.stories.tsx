@@ -15,4 +15,8 @@ type Story = StoryObj<typeof meta> & { args: ComponentProps<typeof MainCardWithI
 /**
  * 情報入力カード
  */
-export const Default: Story = { args: {} };
+export const Default: Story = {
+  args: {
+    setCommodities: () => {},
+  },
+};

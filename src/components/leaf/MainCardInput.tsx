@@ -24,7 +24,8 @@ const MainCardInput = ({
 }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const result = parseInt(e.target.value, 10) || 0;
+    const convertedValue = e.target.value.replace(/[０-９]/g, (s) => String.fromCharCode(s.charCodeAt(0) - 0xfee0));
+    const result = parseInt(convertedValue, 10) || 0;
     handleChange(result);
   };
   const inputType = (handleClick: Props['handleClick']) => {
@@ -35,10 +36,11 @@ const MainCardInput = ({
             disabled={true}
             className='max-w-[70%] text-right outline-none placeholder:text-gray-700'
             onChange={onChange}
+            placeholder={String(value)}
             value={convertValueToDisplayText(unit, unitPosition, value) || 0}
-            placeholder={value ? String(value) : '入力値'}
             id={label}
             type='tel'
+            data-testid={'MainCardInput-' + label}
           />
           <svg
             onClick={() => handleClick(label)}
@@ -47,6 +49,7 @@ const MainCardInput = ({
             height='20'
             viewBox='0 0 20 20'
             fill='none'
+            data-testid={'MainCardInputButton-' + label}
           >
             <path d='M15 0L12.5 2.5L17.5 7.5L20 5L15 0ZM10 5L0 15V20H5L15 10L10 5Z' fill='#D3D3D3' />
           </svg>
@@ -62,6 +65,7 @@ const MainCardInput = ({
           value={value || 0}
           id={label}
           type='tel'
+          data-testid={'MainCardInput-' + label}
           ref={inputRef}
         />
       );

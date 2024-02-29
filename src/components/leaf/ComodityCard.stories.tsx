@@ -25,3 +25,15 @@ export const Default: Story = {
     },
   },
 };
+
+Default.decorators = [
+  (Story) => (
+    <div className='w-1/3'>
+      <ul className='box-content h-full w-full overflow-y-scroll pr-4'>
+        <li className='[&:not(:first-child)]:mt-6'>
+          <Story />
+        </li>
+      </ul>
+    </div>
+  ),
+];

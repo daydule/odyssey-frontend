@@ -1,19 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MainCardWithInput from '../../components/tree/MainCardWithInput';
 import MainCardWithMoneyResult from '../../components/tree/MainCardWithMoneyResult';
+import { Commodity } from '../leaf/CommodityCard';
 import MainCardWithCommodityResult from '../tree/MainCardWithCommodityResult';
 import MainCardWithLogo from '../tree/MainCardWithLogo';
 import PriceContext from './PriceContext';
-
-interface Commodity {
-  name: string;
-  price: number;
-  imagePath: string;
-  altText: string;
-  title: string;
-}
 
 type ActiveLeftCard = 'inputCard' | 'topCard';
 type ActiveRightCard = 'moneyResultCard' | 'commodityResultCard';
@@ -21,51 +14,38 @@ type ActiveRightCard = 'moneyResultCard' | 'commodityResultCard';
 const Main = () => {
   const [activeLeftCard, setActiveLeftCard] = useState<ActiveLeftCard>('inputCard');
   const [activeRightCard, setActiveRightCard] = useState<ActiveRightCard>('moneyResultCard');
-  const commodities: Commodity[] = [
-    { name: 'りんご', price: 100, imagePath: 'images/icon_negate.jpeg', altText: 'Apple', title: 'Apple' },
-    { name: 'みかん', price: 200, imagePath: 'images/icon_negate.jpeg', altText: 'Orange', title: 'Orange' },
-    { name: 'バナナ', price: 300, imagePath: 'images/icon_negate.jpeg', altText: 'Banana', title: 'Banana' },
-    {
-      name: 'パイナップル',
-      price: 400,
-      imagePath: 'images/icon_negate.jpeg',
-      altText: 'Pineapple',
-      title: 'Pineapple',
-    },
-    { name: 'ぶどう', price: 500, imagePath: 'images/icon_negate.jpeg', altText: 'Grape', title: 'Grape' },
-  ];
+  const [commodities, setCommodities] = useState<Commodity[]>([]);
 
   return (
     <PriceContext>
       <div className='flex h-full w-full items-center justify-center'>
         <div className='flex h-full w-3/5 items-center justify-around'>
           <div
-            onClick={() => setActiveLeftCard('topCard')}
             className={activeLeftCard === 'inputCard' ? 'animate-rotate-scale-down-ver' : 'hidden'}
             data-testid='Main-inputCard'
           >
-            <MainCardWithInput />
+            <MainCardWithInput setCommodities={setCommodities} rotateCard={() => setActiveLeftCard('topCard')} />
           </div>
           <div
-            onClick={() => setActiveLeftCard('inputCard')}
             className={activeLeftCard !== 'inputCard' ? 'animate-rotate-scale-down-ver' : 'hidden'}
             data-testid='Main-topCard'
           >
-            <MainCardWithLogo />
+            <MainCardWithLogo rotateCard={() => setActiveLeftCard('inputCard')} />
           </div>
           <div
-            onClick={() => setActiveRightCard('commodityResultCard')}
             className={activeRightCard === 'moneyResultCard' ? 'animate-rotate-scale-down-ver' : 'hidden'}
             data-testid='Main-moneyResultCard'
           >
-            <MainCardWithMoneyResult />
+            <MainCardWithMoneyResult rotateCard={() => setActiveRightCard('commodityResultCard')} />
           </div>
           <div
-            onClick={() => setActiveRightCard('moneyResultCard')}
             className={activeRightCard !== 'moneyResultCard' ? 'animate-rotate-scale-down-ver' : 'hidden'}
             data-testid='Main-commodityResultCard'
           >
-            <MainCardWithCommodityResult commodities={commodities} />
+            <MainCardWithCommodityResult
+              commodities={commodities}
+              rotateCard={() => setActiveRightCard('moneyResultCard')}
+            />
           </div>
         </div>
       </div>

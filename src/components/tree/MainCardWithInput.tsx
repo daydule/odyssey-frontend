@@ -1,12 +1,19 @@
 import { useContext, useEffect, useState } from 'react';
+import { getProducts } from '../../api/getProduct';
 import { SetMainPriceContext } from '../../components/forest/PriceContext';
 import Button from '../../components/leaf/Button';
 import MainCard from '../../components/tree/MainCard';
 import { CONSTANT } from '../../constant/default';
 import { useNotInitializingEffect } from '../../hooks/useNotInitializingEffect';
+import { Commodity } from '../leaf/CommodityCard';
 import MainCardInput from '../leaf/MainCardInput';
 
-const MainCardWithMoneyResult = () => {
+interface MainCardWithInputProps {
+  setCommodities: React.Dispatch<React.SetStateAction<Commodity[]>>;
+  rotateCard?: () => void;
+}
+
+const MainCardWithInput = ({ setCommodities, rotateCard }: MainCardWithInputProps) => {
   // 入力フォームのアクティブ管理
   const [handleClick, setHandleClick] = useState<string>('');
 
@@ -27,6 +34,20 @@ const MainCardWithMoneyResult = () => {
 
     const mainPrice = hourlyWage * hour;
     setMainPrice(mainPrice);
+
+    async function fetchData() {
+      const randomKeyword = CONSTANT.PRODUCT_KEYWORDS[Math.floor(Math.random() * CONSTANT.PRODUCT_KEYWORDS.length)];
+
+      const products = await getProducts({
+        keyword: randomKeyword,
+        genreId: '0',
+        minPrice: Math.round(mainPrice * 0.9),
+        maxPrice: mainPrice,
+        hits: 5,
+      });
+      setCommodities(products);
+    }
+    void fetchData();
   };
 
   useEffect(() => {
@@ -80,7 +101,7 @@ const MainCardWithMoneyResult = () => {
   }, [currentInput]);
 
   return (
-    <MainCard title='Time is Money' headerBgColor='bg-cyan-400'>
+    <MainCard title='Time is Money' headerBgColor='bg-cyan-400' rotateCard={rotateCard}>
       <div className='flex h-full w-full flex-col justify-between'>
         <MainCardInput
           label={CONSTANT.LABEL.ANNUAL_INCOME}
@@ -128,4 +149,4 @@ const MainCardWithMoneyResult = () => {
   );
 };
 
-export default MainCardWithMoneyResult;
+export default MainCardWithInput;

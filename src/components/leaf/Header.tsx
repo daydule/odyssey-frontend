@@ -17,6 +17,7 @@ export const Header = () => {
         className='ml-auto mr-4 cursor-pointer font-medium md:mr-8'
         onClick={() => router.push('/about')}
         data-testid='Header_About_Link'
+        title='About'
       >
         About
       </a>
