@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
+import { ComponentProps } from 'react';
 import { MainPriceContext } from '../../components/forest/PriceContext';
 import MainCardWithMoneyResult from './MainCardWithMoneyResult';
-import { ComponentProps } from 'react';
 
 const meta: Meta<typeof MainCardWithMoneyResult> = {
   component: MainCardWithMoneyResult,

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import AppInstallButton from './AppInstallButton';
 import { ComponentProps } from 'react';
+import AppInstallButton from './AppInstallButton';
 
 const meta: Meta<typeof AppInstallButton> = {
   component: AppInstallButton,

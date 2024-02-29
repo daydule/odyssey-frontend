@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { AboutCardWithImageRight } from './AboutCardWithImageRight';
 import { ComponentProps } from 'react';
+import { AboutCardWithImageRight } from './AboutCardWithImageRight';
 
 const meta: Meta<typeof AboutCardWithImageRight> = {
   component: AboutCardWithImageRight,

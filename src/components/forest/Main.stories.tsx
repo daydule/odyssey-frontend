@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import Main from './Main';
 import { ComponentProps } from 'react';
+import Main from './Main';
 
 const meta: Meta<typeof Main> = {
   component: Main,

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import CommodityCard from './CommodityCard';
 import { ComponentProps } from 'react';
+import CommodityCard from './CommodityCard';
 
 const meta: Meta<typeof CommodityCard> = {
   component: CommodityCard,

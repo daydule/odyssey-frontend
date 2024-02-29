@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import MainCard from './MainCard';
 import { ComponentProps } from 'react';
+import MainCard from './MainCard';
 
 const meta: Meta<typeof MainCard> = {
   component: MainCard,
