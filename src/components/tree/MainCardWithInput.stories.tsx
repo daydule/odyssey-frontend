@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
+import { ComponentProps } from 'react';
 import MainCardWithInput from './MainCardWithInput';
 
 const meta: Meta<typeof MainCardWithInput> = {
@@ -9,9 +10,13 @@ const meta: Meta<typeof MainCardWithInput> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta> & { args: ComponentProps<typeof MainCardWithInput> };
 
 /**
  * 情報入力カード
  */
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    setCommodities: () => {},
+  },
+};
