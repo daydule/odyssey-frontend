@@ -24,7 +24,8 @@ const MainCardInput = ({
 }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const result = parseInt(e.target.value, 10) || 0;
+    const convertedValue = e.target.value.replace(/[０-９]/g, (s) => String.fromCharCode(s.charCodeAt(0) - 0xfee0));
+    const result = parseInt(convertedValue, 10) || 0;
     handleChange(result);
   };
   const inputType = (handleClick: Props['handleClick']) => {
