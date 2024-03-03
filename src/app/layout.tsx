@@ -1,6 +1,12 @@
 import { Metadata } from 'next';
+import { IBM_Plex_Mono } from 'next/font/google';
 import Layout from '@/components/forest/Layout';
 import './globals.css';
+
+const ibmPlexMono = IBM_Plex_Mono({
+  weight: '400',
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -22,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='en'>
+    <html lang='en' className={ibmPlexMono.className}>
       <body>
         <Layout>{children}</Layout>
       </body>
