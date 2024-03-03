@@ -2,7 +2,7 @@ import { twMerge } from 'tailwind-merge';
 import { AboutCardWithImageProps } from '../../type/AboutCardWithImageProps';
 import { AboutCardWithImageLeft } from '../leaf/AboutCardWithImageLeft';
 import { AboutCardWithImageRight } from '../leaf/AboutCardWithImageRight';
-import { AboutCardWithText, AboutCardWitTextProps } from '../leaf/AboutCardWithText';
+import { AboutCardWithText } from '../leaf/AboutCardWithText';
 import AppInstallButton from '../leaf/AppInstallButton';
 
 export const About = () => {
