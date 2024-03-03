@@ -7,7 +7,7 @@ describe('AppInstallButton コンポーネントのテスト', () => {
 
     const linkElement = screen.getByRole('link', { name: /Download on the App Store/i }) as HTMLAnchorElement;
     expect(linkElement).toBeInTheDocument();
-    // expect(linkElement.href).toBe('#');
+    expect(linkElement.href).toBe('http://localhost/#');
   });
 
   it('Google Play ボタンが正しく表示されること', () => {
@@ -15,6 +15,6 @@ describe('AppInstallButton コンポーネントのテスト', () => {
 
     const linkElement = screen.getByRole('link', { name: /Google Play で手に入れよう/i }) as HTMLAnchorElement;
     expect(linkElement).toBeInTheDocument();
-    // expect(linkElement.href).toBe('#');
+    expect(linkElement.href).toBe('http://localhost/#');
   });
 });
