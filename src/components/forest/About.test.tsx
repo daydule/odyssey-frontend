@@ -13,11 +13,11 @@ describe('Aboutページのforestコンポーネントのテスト', () => {
     // カードは3つ
     expect(divDomsInCard.length).toBe(3);
 
-    // 奇数番目は左に画像
+    // １番目は左に画像
     expect(divDomsInCard[0][0].dataset.testid).toBe('AboutCardWithImage_ImageArea');
-    expect(divDomsInCard[2][0].dataset.testid).toBe('AboutCardWithImage_ImageArea');
 
-    // 偶数番目は右に画像
+    // 以降は右に画像
     expect(divDomsInCard[1][1].dataset.testid).toBe('AboutCardWithImage_ImageArea');
+    expect(divDomsInCard[2][1].dataset.testid).toBe('AboutCardWithImage_ImageArea');
   });
 });
