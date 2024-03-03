@@ -52,7 +52,10 @@ export const About = () => {
           <AboutCardWithText text={mainText} />
         </div>
       </section>
-      <section className='mt-24'>
+      <section className='relative mt-24'>
+        <div className='absolute mx-8 flex h-full w-[calc(100%_-_4rem)] items-center justify-center rounded-lg bg-gray-200/90 text-4xl font-bold text-purple-400'>
+          アプリ公開予定
+        </div>
         <p className={titleStyle}>アプリインストール</p>
         <div className='mt-10 flex flex-wrap justify-center'>
           <div className='min-w-[64px]'>
