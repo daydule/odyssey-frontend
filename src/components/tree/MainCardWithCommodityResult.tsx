@@ -23,7 +23,7 @@ const MainCardWithCommodityResult = ({ commodities, rotateCard }: Props) => {
   }, [commodities]);
 
   return (
-    <MainCard title='購入可能商品' headerBgColor='bg-yellow-200' rotateCard={rotateCard}>
+    <MainCard title='Result' headerBgColor='bg-yellow-200' rotateCard={rotateCard}>
       {commodities.length === 0 && (
         <div>
           <p>ここには購入可能な商品が表示されます。</p>
