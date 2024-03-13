@@ -54,7 +54,7 @@ export const About = () => {
       </section>
       <section className='relative mt-24'>
         <div
-          className='absolute inset-x-0 m-auto flex h-full w-[256px] items-center justify-center rounded-lg bg-gray-100/90 text-4xl font-bold text-purple-400 sm:w-[512px]'
+          className='absolute inset-x-0 m-auto flex h-full w-[16rem] items-center justify-center rounded-lg bg-gray-100/90 text-4xl font-bold text-purple-400 sm:w-[32rem]'
           aria-label='アプリ公開予定'
         >
           アプリ公開予定
