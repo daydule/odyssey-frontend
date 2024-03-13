@@ -26,7 +26,7 @@ const MainCardWithMoneyResult = ({ rotateCard }: MainCardWithMoneyResultProps) =
 
       localStorage.setItem('previousPrice', String(mainPrice));
     }
-  }, [mainPrice]);
+  }, [isFirstRender, mainPrice]);
 
   return (
     <MainCard title='得した金額/損した金額' headerBgColor='bg-cyan-400' rotateCard={rotateCard}>
