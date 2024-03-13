@@ -6,9 +6,6 @@ import { isMobile } from 'react-device-detect';
 export const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
-  if (pathname === '/main') {
-    router.push('/about');
-  }
   const needsAboutLink = !isMobile && pathname !== '/about';
   return (
     <div className='flex h-20 w-full items-center bg-gray-100 py-4'>
