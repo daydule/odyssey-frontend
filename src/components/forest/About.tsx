@@ -2,7 +2,7 @@ import { twMerge } from 'tailwind-merge';
 import { AboutCardWithImageProps } from '../../type/AboutCardWithImageProps';
 import { AboutCardWithImageLeft } from '../leaf/AboutCardWithImageLeft';
 import { AboutCardWithImageRight } from '../leaf/AboutCardWithImageRight';
-import { AboutCardWithText, AboutCardWitTextProps } from '../leaf/AboutCardWithText';
+import { AboutCardWithText } from '../leaf/AboutCardWithText';
 import AppInstallButton from '../leaf/AppInstallButton';
 
 export const About = () => {
@@ -52,7 +52,13 @@ export const About = () => {
           <AboutCardWithText text={mainText} />
         </div>
       </section>
-      <section className='mt-24'>
+      <section className='relative mt-24'>
+        <div
+          className='absolute inset-x-0 m-auto flex h-full w-[16rem] items-center justify-center rounded-lg bg-gray-100/90 text-4xl font-bold text-purple-400 sm:w-[32rem]'
+          aria-label='アプリ公開予定'
+        >
+          アプリ公開予定
+        </div>
         <p className={titleStyle}>アプリインストール</p>
         <div className='mt-10 flex flex-wrap justify-center'>
           <div className='min-w-[64px]'>

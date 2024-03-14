@@ -98,7 +98,7 @@ const MainCardWithInput = ({ setCommodities, rotateCard }: MainCardWithInputProp
           break;
       }
     }
-  }, [currentInput]);
+  }, [currentInput, handleClick, isFirstRender]);
 
   return (
     <MainCard title='Time is Money' headerBgColor='bg-cyan-400' rotateCard={rotateCard}>
