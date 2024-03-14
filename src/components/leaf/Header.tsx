@@ -6,7 +6,7 @@ import { isMobile } from 'react-device-detect';
 export const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const needsAboutLink = !isMobile && pathname !== '/about';
+  const shouldHideAboutLink = isMobile || pathname === '/about';
   return (
     <div className='flex h-20 w-full items-center bg-gray-100 py-4'>
       <div
@@ -16,7 +16,7 @@ export const Header = () => {
       >
         <img className='h-full w-auto object-contain' src={'/images/header_logo.png'} alt='ヘッダーロゴ画像' />
       </div>
-      {needsAboutLink && (
+      {!shouldHideAboutLink && (
         <a
           className='ml-auto mr-4 cursor-pointer font-medium md:mr-8'
           onClick={() => router.push('/about')}
