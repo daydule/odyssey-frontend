@@ -15,6 +15,7 @@ export const getProducts = async (options?: Record<string, string | number>): Pr
       imagePath: item.mediumImageUrls[0],
       altText: item.itemName,
       title: item.itemName,
+      url: item.itemUrl,
     };
   });
 };
