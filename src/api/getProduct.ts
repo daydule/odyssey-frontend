@@ -1,6 +1,15 @@
 import { rakutenApiClient } from '../lib/axios';
 
-export const getProducts = async (options?: Record<string, string | number>): Promise<any> => {
+type GetProductResponse = {
+  Items: {
+    itemName: string;
+    itemPrice: number;
+    mediumImageUrls: string[];
+    itemUrl: string;
+  }[];
+};
+
+export const getProducts = async (options?: Record<string, string | number>): Promise<GetProductResponse> => {
   const result: any = await rakutenApiClient.get('/IchibaItem/Search/20220601', {
     params: {
       ...options,
