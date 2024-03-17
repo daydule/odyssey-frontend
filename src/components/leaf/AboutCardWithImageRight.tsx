@@ -14,7 +14,7 @@ export const AboutCardWithImageRight = (props: AboutCardWithImageProps) => {
       </div>
       <div className='w-full text-center md:w-1/2' data-testid='AboutCardWithImage_ImageArea'>
         <img
-          className='h-full w-full rounded-t-3xl bg-gray-300 object-cover md:rounded-[50px] object-fill'
+          className='h-full w-full rounded-t-3xl bg-gray-300 md:rounded-[50px] object-fill'
           src={props.imagePath}
           alt='説明画像'
         />
