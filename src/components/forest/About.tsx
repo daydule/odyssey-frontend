@@ -77,8 +77,12 @@ export const About = () => {
       </section>
       {!isMobile && (
         <div className='mt-8 text-center' data-testid='About_Try_Link'>
-          <a onClick={() => router.push('/main')} title='Main' className='cursor-pointer text-purple-500 underline'>
-            お試しはこちら
+          <a
+            onClick={() => router.push('/main')}
+            title='Main'
+            className='cursor-pointer text-3xl text-purple-500 underline'
+          >
+            Web版で試してみる
           </a>
         </div>
       )}
