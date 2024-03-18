@@ -1,11 +1,17 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+import { isMobile } from 'react-device-detect';
 import { twMerge } from 'tailwind-merge';
 import { AboutCardWithImageProps } from '../../type/AboutCardWithImageProps';
 import { AboutCardWithImageLeft } from '../leaf/AboutCardWithImageLeft';
 import { AboutCardWithImageRight } from '../leaf/AboutCardWithImageRight';
-import { AboutCardWithText, AboutCardWitTextProps } from '../leaf/AboutCardWithText';
+import { AboutCardWithText } from '../leaf/AboutCardWithText';
 import AppInstallButton from '../leaf/AppInstallButton';
 
 export const About = () => {
+  const router = useRouter();
+
   const titleStyle = 'text-center text-3xl font-medium';
   const mainText =
     'TimeIsMoneyは、自身の時間を金銭的な観点から捉えることができるサービスです。ユーザーは年収、月収、または時給を入力し、自身の稼働時間を記録します。その後、計算ボタンを押すことで、過ごした時間を金額に換算した結果が表示され、さらにその金額で購入できる商品の代表的な例を提示します。';
@@ -52,7 +58,13 @@ export const About = () => {
           <AboutCardWithText text={mainText} />
         </div>
       </section>
-      <section className='mt-24'>
+      <section className='relative mt-24'>
+        <div
+          className='absolute inset-x-0 m-auto flex h-full w-[16rem] items-center justify-center rounded-lg bg-gray-100/90 text-4xl font-bold text-purple-400 sm:w-[32rem]'
+          aria-label='アプリ公開予定'
+        >
+          アプリ公開予定
+        </div>
         <p className={titleStyle}>アプリインストール</p>
         <div className='mt-10 flex flex-wrap justify-center'>
           <div className='min-w-[64px]'>
@@ -63,6 +75,17 @@ export const About = () => {
           </div>
         </div>
       </section>
+      {!isMobile && (
+        <div className='mt-8 text-center' data-testid='About_Try_Link'>
+          <a
+            onClick={() => router.push('/main')}
+            title='Main'
+            className='cursor-pointer text-3xl text-purple-500 underline'
+          >
+            Web版で試してみる
+          </a>
+        </div>
+      )}
       <section className='mt-24'>
         <p className={titleStyle}>機能紹介</p>
         {aboutCardsWithImage()}

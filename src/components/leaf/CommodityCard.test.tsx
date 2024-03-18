@@ -6,6 +6,7 @@ const mockCommodity = {
   altText: 'Test Image',
   title: 'Test Commodity',
   price: 1000,
+  url: 'https://example.com',
 };
 
 describe('CommodityCardコンポーネントのテスト', () => {

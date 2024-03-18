@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import MainCardWithInput from '../../components/tree/MainCardWithInput';
 import MainCardWithMoneyResult from '../../components/tree/MainCardWithMoneyResult';
 import { Commodity } from '../leaf/CommodityCard';

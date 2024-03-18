@@ -22,6 +22,7 @@ export const Default: Story = {
       altText: 'altText',
       title: 'air pods2',
       price: 30000,
+      url: 'http://example.com',
     },
   },
 };

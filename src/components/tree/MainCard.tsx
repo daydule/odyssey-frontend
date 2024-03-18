@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { BsPhoneFlip } from 'react-icons/bs';
 import { twMerge } from 'tailwind-merge';
 
 type Props = {
@@ -24,6 +25,7 @@ const MainCard = ({ children, title, headerBgColor, rotateCard }: Props) => {
         <svg xmlns='http://www.w3.org/2000/svg' width='12' height='13' viewBox='0 0 12 13' fill='none'>
           <circle cx='6' cy='6.29102' r='6' fill='white' />
         </svg>
+        <BsPhoneFlip className='absolute right-8' />
       </section>
       <section className='flex h-[535px] w-full items-center justify-center p-[30px]' data-testid='MainCard_Children'>
         {children}
