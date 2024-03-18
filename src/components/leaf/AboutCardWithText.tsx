@@ -8,7 +8,7 @@ export const AboutCardWithText = (props: AboutCardWitTextProps) => {
       className='flex min-h-[300px] w-full rounded-3xl border px-8 py-12 text-center shadow-lg md:rounded-[50px] lg:w-[1024px] lg:px-20'
       data-testid='AboutCardWithText'
     >
-      <p className='text-lg'>{props.text}</p>
+      <p className='text-2xl'>{props.text}</p>
     </div>
   );
 };
