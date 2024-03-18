@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useLayoutEffect, useState } from 'react';
 import { getProducts } from '../../api/getProduct';
 import { SetMainPriceContext } from '../../components/forest/PriceContext';
 import Button from '../../components/leaf/Button';
@@ -14,14 +14,38 @@ interface MainCardWithInputProps {
 }
 
 const MainCardWithInput = ({ setCommodities, rotateCard }: MainCardWithInputProps) => {
+  const firstInputState = (stateType: string): number => {
+    const previousHourlyWage = Number(localStorage.getItem('hourlyWage'));
+
+    if (previousHourlyWage) {
+      switch (stateType) {
+        case CONSTANT.LABEL.ANNUAL_INCOME:
+          return currentInput * CONSTANT.CALC.ONE_MONTH_WORKING_HOUR * CONSTANT.CALC.MONTH_OF_THE_YEAR;
+        case CONSTANT.LABEL.MONTHLY_INCOME:
+          return currentInput * CONSTANT.CALC.ONE_MONTH_WORKING_HOUR;
+        case CONSTANT.LABEL.HOURLY_WAGE:
+          return previousHourlyWage;
+      }
+    }
+
+    return 0;
+  };
   // 入力フォームのアクティブ管理
   const [handleClick, setHandleClick] = useState<string>('');
 
   // 収入（年収・月給・時給）入力値
-  const [currentInput, setCurrentInput] = useState<number>(0);
-  const [annualIncome, setAnnualIncome] = useState<number>(0);
-  const [monthlyIncome, setMonthlyIncome] = useState<number>(0);
-  const [hourlyWage, setHourlyWage] = useState<number>(0);
+  const [currentInput, setCurrentInput] = useState<number>(() => {
+    return firstInputState(CONSTANT.LABEL.HOURLY_WAGE);
+  });
+  const [annualIncome, setAnnualIncome] = useState<number>(() => {
+    return firstInputState(CONSTANT.LABEL.ANNUAL_INCOME);
+  });
+  const [monthlyIncome, setMonthlyIncome] = useState<number>(() => {
+    return firstInputState(CONSTANT.LABEL.MONTHLY_INCOME);
+  });
+  const [hourlyWage, setHourlyWage] = useState<number>(() => {
+    return firstInputState(CONSTANT.LABEL.HOURLY_WAGE);
+  });
   const [hour, setHour] = useState<number>(0);
 
   const { setMainPrice } = useContext(SetMainPriceContext);
@@ -34,6 +58,8 @@ const MainCardWithInput = ({ setCommodities, rotateCard }: MainCardWithInputProp
 
     const mainPrice = hourlyWage * hour;
     setMainPrice(mainPrice);
+
+    localStorage.setItem('hourlyWage', String(hourlyWage));
 
     async function fetchData() {
       const randomKeyword = CONSTANT.PRODUCT_KEYWORDS[Math.floor(Math.random() * CONSTANT.PRODUCT_KEYWORDS.length)];
