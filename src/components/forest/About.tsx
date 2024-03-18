@@ -1,3 +1,7 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+import { isMobile } from 'react-device-detect';
 import { twMerge } from 'tailwind-merge';
 import { AboutCardWithImageProps } from '../../type/AboutCardWithImageProps';
 import { AboutCardWithImageLeft } from '../leaf/AboutCardWithImageLeft';
@@ -6,6 +10,8 @@ import { AboutCardWithText } from '../leaf/AboutCardWithText';
 import AppInstallButton from '../leaf/AppInstallButton';
 
 export const About = () => {
+  const router = useRouter();
+
   const titleStyle = 'text-center text-3xl font-medium';
   const mainText =
     'テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト';
@@ -69,6 +75,17 @@ export const About = () => {
           </div>
         </div>
       </section>
+      {!isMobile && (
+        <div className='mt-8 text-center' data-testid='About_Try_Link'>
+          <a
+            onClick={() => router.push('/main')}
+            title='Main'
+            className='cursor-pointer text-3xl text-purple-500 underline'
+          >
+            Web版で試してみる
+          </a>
+        </div>
+      )}
       <section className='mt-24'>
         <p className={titleStyle}>機能紹介</p>
         {aboutCardsWithImage()}
